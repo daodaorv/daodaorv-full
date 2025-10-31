@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>叨叨房车 - 订单确认页面原型</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f8f8;
+            color: rgba(0, 0, 0, 0.9);
+            line-height: 1.6;
+            font-size: 14px;
+            max-width: 375px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            height: 44px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .navbar-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .navbar-back {
+            position: absolute;
+            left: 16px;
+            font-size: 14px;
+            color: #4b91ff;
+            text-decoration: none;
+        }
+
+        /* 主容器 */
+        .container {
+            padding-bottom: 100px;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: #ffffff;
+            margin: 12px 16px;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* 房车信息 */
+        .vehicle-info {
+            display: flex;
+            gap: 12px;
+        }
+
+        .vehicle-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .vehicle-details {
+            flex: 1;
+        }
+
+        .vehicle-name {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .vehicle-specs {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.4;
+        }
+
+        /* 日期选择 */
+        .date-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-item {
+            flex: 1;
+        }
+
+        .date-label {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+            margin-bottom: 8px;
+        }
+
+        .date-value {
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* 费用明细 */
+        .fee-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .fee-item:last-child {
+            border-bottom: none;
+        }
+
+        .fee-label {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .fee-value {
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .fee-highlight {
+            color: #ff9f29;
+        }
+
+        /* 保险选择 */
+        .insurance-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .insurance-option {
+            padding: 16px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .insurance-option:hover {
+            border-color: rgba(255, 159, 41, 0.3);
+        }
+
+        .insurance-option.selected {
+            border-color: #ff9f29;
+            background: rgba(255, 159, 41, 0.05);
+        }
+
+        .insurance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .insurance-name {
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .insurance-price {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ff9f29;
+        }
+
+        .insurance-desc {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.4;
+        }
+
+        /* 附加服务 */
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e5e5e5;
+            border-radius: 4px;
+            margin-right: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-checkbox.checked {
+            background: #ff9f29;
+            border-color: #ff9f29;
+        }
+
+        .service-checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 3px;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .service-info {
+            flex: 1;
+        }
+
+        .service-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .service-desc {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .service-price {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ff9f29;
+        }
+
+        /* 优惠信息 */
+        .coupon-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .coupon-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .coupon-icon {
+            width: 20px;
+            height: 20px;
+            background: #ff9f29;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .coupon-text {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .coupon-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ff9f29;
+        }
+
+        /* 总计 */
+        .total-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-top: 2px solid #f0f0f0;
+            margin-top: 8px;
+        }
+
+        .total-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .total-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff9f29;
+        }
+
+        /* 押金信息样式 */
+        .deposit-info {
+            padding: 16px 0;
+        }
+
+        .deposit-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-bottom: 32px;
+        }
+
+        .deposit-item:last-child {
+            border-bottom: none;
+        }
+
+        .deposit-type {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .deposit-amount {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ff9f29;
+            margin-right: 16px;
+        }
+
+        .deposit-desc {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 0;
+            top: 38px;
+        }
+
+        .deposit-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-top: 2px solid #f0f0f0;
+            margin-top: 8px;
+        }
+
+        .deposit-total-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .deposit-total-amount {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+
+        .deposit-notice {
+            display: flex;
+            align-items: flex-start;
+            background: #fff8e1;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 16px;
+            border-left: 3px solid #ffa726;
+        }
+
+        .notice-icon {
+            font-size: 14px;
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+
+        .notice-text {
+            flex: 1;
+            font-size: 13px;
+            color: #f57c00;
+            line-height: 1.4;
+        }
+
+        /* 用户协议 */
+        .agreement {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin: 16px 16px 24px;
+        }
+
+        .agreement-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #e5e5e5;
+            border-radius: 3px;
+            margin-top: 2px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .agreement-checkbox.checked {
+            background: #4b91ff;
+            border-color: #4b91ff;
+            position: relative;
+        }
+
+        .agreement-checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: white;
+            font-size: 10px;
+        }
+
+        .agreement-text {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.5;
+        }
+
+        .agreement-link {
+            color: #4b91ff;
+            text-decoration: none;
+        }
+
+        /* 底部操作栏 */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            padding: 16px;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 375px;
+            margin: 0 auto;
+        }
+
+        .bottom-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .total-info {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .total-label {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .total-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff9f29;
+        }
+
+        .submit-btn {
+            background: #ff9f29;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            height: 48px;
+            padding: 0 32px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 159, 41, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: rgba(255, 159, 41, 0.9);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .submit-btn:disabled {
+            background: #f5f5f5;
+            color: rgba(0, 0, 0, 0.3);
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        /* 加载状态 */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-content {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #f0f0f0;
+            border-top: 3px solid #ff9f29;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 12px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 响应式 */
+        @media (max-width: 375px) {
+            body {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <a href="#" class="navbar-back">← 返回</a>
+        <div class="navbar-title">确认订单</div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 房车信息卡片 -->
+        <div class="card">
+            <div class="card-title">房车信息</div>
+            <div class="vehicle-info">
+                <div class="vehicle-image">房车图片</div>
+                <div class="vehicle-details">
+                    <div class="vehicle-name">豪华C型房车</div>
+                    <div class="vehicle-specs">
+                        6座 • 4床 • 自动挡 • 含司机<br>
+                        适合4-6人 • 配备厨房卫生间
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 租赁日期卡片 -->
+        <div class="card">
+            <div class="card-title">租赁日期</div>
+            <div class="date-section">
+                <div class="date-item">
+                    <div class="date-label">取车时间</div>
+                    <div class="date-value">11月15日 10:00</div>
+                </div>
+                <div class="date-item">
+                    <div class="date-label">还车时间</div>
+                    <div class="date-value">11月17日 18:00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 保险选择卡片 -->
+        <div class="card">
+            <div class="card-title">保险方案</div>
+            <div class="insurance-options">
+                <div class="insurance-option selected" onclick="selectInsurance(this)">
+                    <div class="insurance-header">
+                        <div class="insurance-name">基础险</div>
+                        <div class="insurance-price">+¥80/天</div>
+                    </div>
+                    <div class="insurance-desc">
+                        包含第三者责任险50万，车损险<br>
+                        适合短途租赁，经济实惠
+                    </div>
+                </div>
+                <div class="insurance-option" onclick="selectInsurance(this)">
+                    <div class="insurance-header">
+                        <div class="insurance-name">标准险</div>
+                        <div class="insurance-price">+¥120/天</div>
+                    </div>
+                    <div class="insurance-desc">
+                        包含第三者责任险100万，车损险，盗抢险<br>
+                        推荐选择，保障全面
+                    </div>
+                </div>
+                <div class="insurance-option" onclick="selectInsurance(this)">
+                    <div class="insurance-header">
+                        <div class="insurance-name">全险</div>
+                        <div class="insurance-price">+¥160/天</div>
+                    </div>
+                    <div class="insurance-desc">
+                        包含所有险种，零免赔额<br>
+                        完全无忧，安心出行
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 附加服务卡片 -->
+        <div class="card">
+            <div class="card-title">附加服务</div>
+            <div class="service-item">
+                <div class="service-checkbox" onclick="toggleService(this)"></div>
+                <div class="service-info">
+                    <div class="service-name">儿童座椅</div>
+                    <div class="service-desc">适合3-12岁儿童，安全舒适</div>
+                </div>
+                <div class="service-price">+¥50/天</div>
+            </div>
+            <div class="service-item">
+                <div class="service-checkbox" onclick="toggleService(this)"></div>
+                <div class="service-info">
+                    <div class="service-name">GPS导航</div>
+                    <div class="service-desc">最新版地图，实时路况更新</div>
+                </div>
+                <div class="service-price">+¥30/天</div>
+            </div>
+            <div class="service-item">
+                <div class="service-checkbox checked" onclick="toggleService(this)"></div>
+                <div class="service-info">
+                    <div class="service-name">清洁套装</div>
+                    <div class="service-desc">床上用品、洗漱用品、厨房用品</div>
+                </div>
+                <div class="service-price">+¥80/次</div>
+            </div>
+        </div>
+
+        <!-- 优惠券卡片 -->
+        <div class="card">
+            <div class="coupon-section">
+                <div class="coupon-info">
+                    <div class="coupon-icon">券</div>
+                    <div class="coupon-text">新用户专享优惠券</div>
+                </div>
+                <div class="coupon-value">-¥100</div>
+            </div>
+        </div>
+
+        <!-- 费用明细卡片 -->
+        <div class="card">
+            <div class="card-title">费用明细</div>
+            <div class="fee-item">
+                <div class="fee-label">房车租金 (2天)</div>
+                <div class="fee-value">¥1,200</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-label">基础险 (2天)</div>
+                <div class="fee-value">¥160</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-label">清洁套装</div>
+                <div class="fee-value">¥80</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-label">优惠券</div>
+                <div class="fee-value fee-highlight">-¥100</div>
+            </div>
+            <div class="total-section">
+                <div class="total-label">线上支付</div>
+                <div class="total-value">¥1,340</div>
+            </div>
+        </div>
+
+        <!-- 押金说明卡片 -->
+        <div class="card">
+            <div class="card-title">押金说明</div>
+            <div class="deposit-info">
+                <div class="deposit-item">
+                    <div class="deposit-type">车辆押金</div>
+                    <div class="deposit-amount">¥5,000</div>
+                    <div class="deposit-desc">取车时支付，还车后立即退还</div>
+                </div>
+                <div class="deposit-item">
+                    <div class="deposit-type">违章押金</div>
+                    <div class="deposit-amount">¥5,000</div>
+                    <div class="deposit-desc">取车时支付，30天后无违章退还</div>
+                </div>
+                <div class="deposit-total">
+                    <div class="deposit-total-label">押金合计</div>
+                    <div class="deposit-total-amount">¥10,000</div>
+                </div>
+                <div class="deposit-notice">
+                    <div class="notice-icon">⚠️</div>
+                    <div class="notice-text">
+                        押金需在取车时通过微信/支付宝扫码支付，不支持线上预付
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 用户协议 -->
+        <div class="agreement">
+            <div class="agreement-checkbox checked" onclick="toggleAgreement(this)"></div>
+            <div class="agreement-text">
+                我已阅读并同意<a href="#" class="agreement-link">《租赁服务协议》</a>和<a href="#" class="agreement-link">《保险条款》</a>，了解并接受相关费用和规则。
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部操作栏 -->
+    <div class="bottom-bar">
+        <div class="bottom-content">
+            <div class="total-info">
+                <div class="total-label">合计：</div>
+                <div class="total-amount">¥1,340</div>
+            </div>
+            <button class="submit-btn" onclick="submitOrder()">立即支付</button>
+        </div>
+    </div>
+
+    <!-- 加载状态 -->
+    <div class="loading" id="loading">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <div>正在处理订单...</div>
+        </div>
+    </div>
+
+    <script>
+        // 选择保险方案
+        function selectInsurance(element) {
+            document.querySelectorAll('.insurance-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            updateTotal();
+        }
+
+        // 切换附加服务
+        function toggleService(element) {
+            element.classList.toggle('checked');
+            updateTotal();
+        }
+
+        // 切换协议同意
+        function toggleAgreement(element) {
+            element.classList.toggle('checked');
+            updateSubmitButton();
+        }
+
+        // 更新总金额
+        function updateTotal() {
+            // 这里应该根据选择的项目重新计算总价
+            // 为了演示，暂时使用固定值
+            const basePrice = 1200; // 房车租金
+            const insurance = 160;  // 基础险
+            const services = 80;     // 清洁套装
+            const discount = 100;   // 优惠券
+
+            const total = basePrice + insurance + services - discount;
+
+            document.querySelector('.total-value').textContent = `¥${total}`;
+            document.querySelector('.total-amount').textContent = `¥${total}`;
+        }
+
+        // 更新提交按钮状态
+        function updateSubmitButton() {
+            const agreementChecked = document.querySelector('.agreement-checkbox').classList.contains('checked');
+            const submitBtn = document.querySelector('.submit-btn');
+
+            submitBtn.disabled = !agreementChecked;
+        }
+
+        // 提交订单
+        function submitOrder() {
+            const agreementChecked = document.querySelector('.agreement-checkbox').classList.contains('checked');
+
+            if (!agreementChecked) {
+                alert('请先阅读并同意相关协议');
+                return;
+            }
+
+            // 显示加载状态
+            document.getElementById('loading').style.display = 'flex';
+
+            // 模拟提交过程
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                alert('订单提交成功！即将跳转到支付页面...');
+                // 实际应用中这里应该跳转到支付页面
+                // window.location.href = '/payment';
+            }, 2000);
+        }
+
+        // 页面初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTotal();
+            updateSubmitButton();
+        });
+    </script>
+</body>
+</html>

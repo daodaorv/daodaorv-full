@@ -1,0 +1,218 @@
+﻿
+> daodao-rv-backend@1.0.0 test
+> jest tests/auth.test.ts
+
+node.exe : ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+所在位置 行:1 字符: 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ts-jest[ts-jest...ated. Please do:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+Sun, 26 Oct 2025 04:19:32 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old midd
+leware https://github.com/koajs/koa/blob/master/docs/migration.md at src\app.ts:29:5
+  console.log
+    馃И 娴嬭瘯鐜鍒濆鍖?..
+
+      at Object.<anonymous> (tests/setup.ts:52:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡寤虹珛
+
+      at Object.<anonymous> (tests/setup.ts:57:13)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:62:11)
+
+2025-10-26 12:19:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13852372330
+2025-10-26 12:19:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 9fde6996-bde5-4c60-81ba-e5b885dace2a - 13852372330
+2025-10-26 12:19:33 [[32MINFO[39M]: POST /api/auth/register - 200 - 129ms
+2025-10-26 12:19:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13852372330
+2025-10-26 12:19:33 [[33MWARN[39M]: 娉ㄥ唽澶辫触: 鎵嬫満鍙峰凡瀛樺湪 - 13852372330
+2025-10-26 12:19:33 [[31MERROR[39M]: 鐢ㄦ埛娉ㄥ唽澶辫触: 13852372330 鎵嬫満鍙峰凡娉ㄥ唽
+Error: 鎵嬫満鍙峰凡娉ㄥ唽
+    at AuthService.register (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:66:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.register (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:30:20)
+2025-10-26 12:19:33 [[31MERROR[39M]: POST /api/auth/register - 500 - 9ms
+2025-10-26 12:19:33 [[33MWARN[39M]: POST /api/auth/register - 400 - 1ms
+2025-10-26 12:19:33 [[33MWARN[39M]: POST /api/auth/register - 400 - 0ms
+2025-10-26 12:19:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852372330
+2025-10-26 12:19:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: 9fde6996-bde5-4c60-81ba-e5b885dace2a - 13852372330
+2025-10-26 12:19:33 [[32MINFO[39M]: POST /api/auth/login - 200 - 80ms
+2025-10-26 12:19:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852372330
+2025-10-26 12:19:33 [[33MWARN[39M]: 鐧诲綍澶辫触: 瀵嗙爜閿欒 - 13852372330
+2025-10-26 12:19:33 [[31MERROR[39M]: 鐢ㄦ埛鐧诲綍澶辫触: 13852372330 瀵嗙爜閿欒
+Error: 瀵嗙爜閿欒
+    at AuthService.login (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:131:15)
+    at AuthController.login (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:56:22)
+2025-10-26 12:19:33 [[33MWARN[39M]: POST /api/auth/login - 401 - 78ms
+2025-10-26 12:19:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 19999999999
+2025-10-26 12:19:33 [[33MWARN[39M]: 鐧诲綍澶辫触: 鐢ㄦ埛涓嶅瓨鍦?- 19999999999
+2025-10-26 12:19:33 [[31MERROR[39M]: 鐢ㄦ埛鐧诲綍澶辫触: 19999999999 鐢ㄦ埛涓嶅瓨鍦?Error: 鐢ㄦ埛涓嶅瓨鍦?    at AuthService.login (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:118:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:56:22)
+2025-10-26 12:19:33 [[33MWARN[39M]: POST /api/auth/login - 404 - 2ms
+2025-10-26 12:19:33 [[33MWARN[39M]: POST /api/auth/login - 400 - 0ms
+2025-10-26 12:19:33 [[32MINFO[39M]: GET /api/auth/profile - 200 - 3ms
+2025-10-26 12:19:33 [[33MWARN[39M]: GET /api/auth/profile - 401 - 0ms
+2025-10-26 12:19:33 [[31MERROR[39M]: JWT楠岃瘉澶辫触 Invalid or expired token
+Error: Invalid or expired token
+    at verifyToken (D:\daodao\daodaorv01\backend\src\utils\jwt.ts:26:11)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:28:32)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-router\lib\router.js:423:16
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:34:12
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-router\lib\router.js:428:31)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-body\src\index.ts:120:12
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-convert\index.js:42:43
+    at Generator.next (<anonymous>)
+    at onFulfilled (D:\daodao\daodaorv01\backend\node_modules\co\index.js:65:19)
+    at D:\daodao\daodaorv01\backend\node_modules\co\index.js:54:5
+    at new Promise (<anonymous>)
+    at Object.co (D:\daodao\daodaorv01\backend\node_modules\co\index.js:50:10)
+    at Object.toPromise (D:\daodao\daodaorv01\backend\node_modules\co\index.js:118:63)
+    at next (D:\daodao\daodaorv01\backend\node_modules\co\index.js:99:29)
+    at onFulfilled (D:\daodao\daodaorv01\backend\node_modules\co\index.js:69:7)
+    at D:\daodao\daodaorv01\backend\node_modules\co\index.js:54:5
+    at new Promise (<anonymous>)
+    at Object.co (D:\daodao\daodaorv01\backend\node_modules\co\index.js:50:10)
+    at converted (D:\daodao\daodaorv01\backend\node_modules\koa-convert\index.js:38:15)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at responseMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\response.ts:39:9)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at requestLogger (D:\daodao\daodaorv01\backend\src\middlewares\request-logger.ts:10:9)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at errorHandler (D:\daodao\daodaorv01\backend\src\middlewares\error-handler.ts:9:11)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:34:12
+    at Application.handleRequest (D:\daodao\daodaorv01\backend\node_modules\koa\lib\application.js:186:12)
+    at Server.handleRequest (D:\daodao\daodaorv01\backend\node_modules\koa\lib\application.js:157:21)
+    at Server.emit (node:events:519:28)
+    at parserOnIncoming (node:_http_server:1184:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:122:17)
+2025-10-26 12:19:33 [[33MWARN[39M]: GET /api/auth/profile - 401 - 5ms
+2025-10-26 12:19:33 [[32MINFO[39M]: POST /api/auth/logout - 200 - 0ms
+2025-10-26 12:19:33 [[33MWARN[39M]: GET /api/auth/profile - 401 - 0ms
+2025-10-26 12:19:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13852373940
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 4c408e04-169c-4e8c-a0e8-e9fcf94a374f - 13852373940
+2025-10-26 12:19:34 [[32MINFO[39M]: POST /api/auth/register - 200 - 100ms
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852373940
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: 4c408e04-169c-4e8c-a0e8-e9fcf94a374f - 13852373940
+2025-10-26 12:19:34 [[32MINFO[39M]: POST /api/auth/login - 200 - 91ms
+2025-10-26 12:19:34 [[32MINFO[39M]: 淇敼瀵嗙爜璇锋眰: 鐢ㄦ埛ID 4c408e04-169c-4e8c-a0e8-e9fcf94a374f
+2025-10-26 12:19:34 [[32MINFO[39M]: 瀵嗙爜淇敼鎴愬姛: 4c408e04-169c-4e8c-a0e8-e9fcf94a374f - 13852373940
+2025-10-26 12:19:34 [[32MINFO[39M]: POST /api/auth/change-password - 200 - 310ms
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852373940
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: 4c408e04-169c-4e8c-a0e8-e9fcf94a374f - 13852373940
+2025-10-26 12:19:34 [[32MINFO[39M]: POST /api/auth/login - 200 - 114ms
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13852374576
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: e03f2097-28ba-4902-829b-2b639c4c5245 - 13852374576
+2025-10-26 12:19:34 [[32MINFO[39M]: POST /api/auth/register - 200 - 102ms
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852374576
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: e03f2097-28ba-4902-829b-2b639c4c5245 - 13852374576
+2025-10-26 12:19:34 [[32MINFO[39M]: POST /api/auth/login - 200 - 77ms
+2025-10-26 12:19:34 [[32MINFO[39M]: 淇敼瀵嗙爜璇锋眰: 鐢ㄦ埛ID e03f2097-28ba-4902-829b-2b639c4c5245
+2025-10-26 12:19:34 [[33MWARN[39M]: 淇敼瀵嗙爜澶辫触: 鏃у瘑鐮侀敊璇?- e03f2097-28ba-4902-829b-2b639c4c5245
+2025-10-26 12:19:34 [[31MERROR[39M]: 淇敼瀵嗙爜澶辫触: 鐢ㄦ埛ID e03f2097-28ba-4902-829b-2b639c4c5245 鏃у瘑鐮侀敊璇?Error: 鏃у瘑鐮侀敊璇?    at AuthService.changePassword (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:267:15)
+    at AuthController.changePassword (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:223:22)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:42:5)
+2025-10-26 12:19:34 [[33MWARN[39M]: POST /api/auth/change-password - 401 - 79ms
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13852374843
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: e930e930-99ad-4de6-9a8a-d3025247a2bd - 13852374843
+2025-10-26 12:19:34 [[32MINFO[39M]: POST /api/auth/register - 200 - 91ms
+2025-10-26 12:19:34 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852374843
+2025-10-26 12:19:35 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: e930e930-99ad-4de6-9a8a-d3025247a2bd - 13852374843
+2025-10-26 12:19:35 [[32MINFO[39M]: POST /api/auth/login - 200 - 78ms
+2025-10-26 12:19:35 [[32MINFO[39M]: POST /api/auth/real-name - 200 - 15ms
+2025-10-26 12:19:35 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852374843
+2025-10-26 12:19:35 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: e930e930-99ad-4de6-9a8a-d3025247a2bd - 13852374843
+2025-10-26 12:19:35 [[32MINFO[39M]: POST /api/auth/login - 200 - 96ms
+2025-10-26 12:19:35 [[33MWARN[39M]: POST /api/auth/real-name - 400 - 0ms
+2025-10-26 12:19:35 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13852375142
+2025-10-26 12:19:35 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: dccc1ec4-242f-40af-bc7c-739e838fe01e - 13852375142
+2025-10-26 12:19:35 [[32MINFO[39M]: POST /api/auth/register - 200 - 87ms
+2025-10-26 12:19:35 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852375142
+2025-10-26 12:19:35 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: dccc1ec4-242f-40af-bc7c-739e838fe01e - 13852375142
+2025-10-26 12:19:35 [[32MINFO[39M]: POST /api/auth/login - 200 - 83ms
+2025-10-26 12:19:35 [[33MWARN[39M]: POST /api/auth/driving-license - 400 - 3ms
+  console.log
+    馃敡 娴嬭瘯鐜娓呯悊涓?..
+
+      at Object.<anonymous> (tests/setup.ts:73:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:77:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡鍏抽棴
+
+      at Object.<anonymous> (tests/setup.ts:81:13)
+
+  console.log
+    鉁?娴嬭瘯鐜娓呯悊瀹屾垚
+
+      at Object.<anonymous> (tests/setup.ts:84:11)
+
+FAIL tests/auth.test.ts (7.552 s)
+  鐢ㄦ埛璁よ瘉 API 娴嬭瘯
+    POST /api/auth/register - 鐢ㄦ埛娉ㄥ唽
+      鈭?搴旇鎴愬姛娉ㄥ唽鏂扮敤鎴?(148 ms)
+      鈭?閲嶅鎵嬫満鍙峰簲璇ヨ繑鍥為敊璇?(14 ms)
+      鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖 400 閿欒 (5 ms)
+      鈭?鎵嬫満鍙锋牸寮忎笉姝ｇ‘搴旇杩斿洖閿欒 (3 ms)
+    POST /api/auth/login - 鐢ㄦ埛鐧诲綍
+      鈭?搴旇鎴愬姛鐧诲綍 (84 ms)
+      鈭?閿欒鐨勫瘑鐮佸簲璇ヨ繑鍥為敊璇?(81 ms)
+      鈭?涓嶅瓨鍦ㄧ殑鎵嬫満鍙峰簲璇ヨ繑鍥為敊璇?(6 ms)
+      鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖 400 閿欒 (4 ms)
+    GET /api/auth/profile - 鑾峰彇鐢ㄦ埛淇℃伅
+      鈭?搴旇鎴愬姛鑾峰彇褰撳墠鐢ㄦ埛淇℃伅 (9 ms)
+      鈭?鏈櫥褰曞簲璇ヨ繑鍥?401 閿欒 (4 ms)
+      鈭?鏃犳晥鐨?Token 搴旇杩斿洖 401 閿欒 (10 ms)
+    POST /api/auth/logout - 閫€鍑虹櫥褰?      鈭?搴旇鎴愬姛閫€鍑虹櫥褰?(4 ms)
+      鈭?閫€鍑哄悗 Token 搴旇澶辨晥 (3 ms)
+    POST /api/auth/change-password - 淇敼瀵嗙爜
+      鈭?搴旇鎴愬姛淇敼瀵嗙爜 (513 ms)
+      鈭?搴旇鍙互浣跨敤鏂板瘑鐮佺櫥褰?(122 ms)
+      鈭?鏃у瘑鐮侀敊璇簲璇ヨ繑鍥為敊璇?(267 ms)
+    POST /api/auth/real-name - 鎻愪氦瀹炲悕璁よ瘉
+      鈭?搴旇鎴愬姛鎻愪氦瀹炲悕璁よ瘉璧勬枡 (195 ms)
+      鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖閿欒 (105 ms)
+    POST /api/auth/driving-license - 鎻愪氦椹剧収璁よ瘉
+      脳 搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡 (184 ms)
+
+  鈼?鐢ㄦ埛璁よ瘉 API 娴嬭瘯 鈥?POST /api/auth/driving-license - 鎻愪氦椹剧収璁よ瘉 鈥?搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 400
+
+    [0m [90m 295 |[39m         })[33m;[39m
+     [90m 296 |[39m
+    [31m[1m>[22m[39m[90m 297 |[39m       expect(response[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                               [31m[1m^[22m[39m
+     [90m 298 |[39m       expect(response[33m.[39mbody[33m.[39msuccess)[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m 299 |[39m       expect(response[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'椹剧収璧勬枡鎻愪氦鎴愬姛'[39m)[33m;[39m
+     [90m 300 |[39m     })[33m;[39m[0m
+
+      at Object.<anonymous> (tests/auth.test.ts:297:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 18 passed, 19 total
+Snapshots:   0 total
+Time:        7.875 s, estimated 10 s
+Ran all test suites matching /tests\\auth.test.ts/i.
+^C

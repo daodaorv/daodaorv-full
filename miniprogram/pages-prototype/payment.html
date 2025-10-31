@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>叨叨房车 - 支付页面原型</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f8f8;
+            color: rgba(0, 0, 0, 0.9);
+            line-height: 1.6;
+            font-size: 14px;
+            max-width: 375px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            height: 44px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .navbar-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .navbar-back {
+            position: absolute;
+            left: 16px;
+            font-size: 14px;
+            color: #4b91ff;
+            text-decoration: none;
+        }
+
+        /* 主容器样式 */
+        .container {
+            padding-bottom: 80px;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            margin: 12px 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+            padding: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* 支付方式样式 */
+        .payment-methods {
+            padding: 16px;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        .payment-method:hover {
+            border-color: rgba(255, 159, 41, 0.3);
+        }
+
+        .payment-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e5e5e5;
+            border-radius: 4px;
+            margin-right: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .payment-checkbox:checked {
+            background: #ff9f29;
+            border-color: #ff9f29;
+            position: relative;
+        }
+
+        .payment-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .payment-checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .payment-icon.wallet {
+            background: #ffeaa7;
+            color: #fdcb6e;
+        }
+
+        .payment-icon.wechat {
+            background: #d4edda;
+            color: #28a745;
+        }
+
+        .payment-icon.alipay {
+            background: #d1ecf1;
+            color: #17a2b8;
+        }
+
+        .payment-info {
+            flex: 1;
+        }
+
+        .payment-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+            margin-bottom: 2px;
+        }
+
+        .payment-desc {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .payment-balance {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.7);
+            font-weight: 500;
+        }
+
+        /* 钱包金额选择区域 */
+        .wallet-amount-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            border-left: 3px solid #ff9f29;
+        }
+
+        .amount-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .input-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .amount-input-wrapper {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 12px;
+            background: white;
+        }
+
+        .currency-symbol {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+            margin-right: 8px;
+        }
+
+        .amount-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .quick-amount-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .quick-amount-btn {
+            padding: 8px 16px;
+            border: 1px solid #e5e5e5;
+            border-radius: 20px;
+            background: white;
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-amount-btn:hover {
+            border-color: #ff9f29;
+            color: #ff9f29;
+        }
+
+        .remaining-amount {
+            text-align: right;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.7);
+            margin-top: 8px;
+        }
+
+        .remaining-amount-value {
+            font-weight: 600;
+            color: #ff6b35;
+            font-size: 16px;
+        }
+
+        /* 底部支付按钮 */
+        .payment-footer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 375px;
+            background: #ffffff;
+            padding: 16px;
+            border-top: 1px solid #f0f0f0;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-button {
+            width: 100%;
+            height: 48px;
+            background: #ff9f29;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-button:hover:not(:disabled) {
+            background: #e89e3c;
+            transform: translateY(-1px);
+        }
+
+        .payment-button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 订单信息卡片 */
+        .order-info {
+            background: #ffffff;
+            border-radius: 12px;
+            margin: 12px 16px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .order-info-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+            margin-bottom: 12px;
+        }
+
+        .order-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+        }
+
+        .order-info-label {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .order-info-value {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.9);
+            font-weight: 500;
+        }
+
+        .order-info-total {
+            border-top: 1px solid #f0f0f0;
+            margin-top: 8px;
+            padding-top: 12px;
+        }
+
+        .order-info-total .order-info-label {
+            font-weight: 600;
+        }
+
+        .order-info-total .order-info-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+
+        /* 押金提醒样式 */
+        .deposit-reminder {
+            background: #ffffff;
+            border-radius: 12px;
+            margin: 12px 16px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: flex-start;
+            border-left: 3px solid #ff9f29;
+        }
+
+        .reminder-icon {
+            font-size: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+
+        .reminder-content {
+            flex: 1;
+        }
+
+        .reminder-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+            margin-bottom: 6px;
+        }
+
+        .reminder-text {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 1.4;
+        }
+
+        /* 倒计时样式 */
+        .countdown {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 16px;
+            text-align: center;
+        }
+
+        .countdown-text {
+            font-size: 14px;
+            color: #856404;
+        }
+
+        .countdown-time {
+            font-weight: 600;
+            color: #ff6b35;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <a href="#" class="navbar-back">← 返回</a>
+        <div class="navbar-title">确认支付</div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 支付倒计时 -->
+        <div class="countdown">
+            <div class="countdown-text">
+                请在 <span class="countdown-time" id="countdown">14分58秒</span> 内完成支付，超时订单将自动取消
+            </div>
+        </div>
+
+        <!-- 订单信息 -->
+        <div class="order-info">
+            <div class="order-info-title">订单金额</div>
+            <div class="order-info-row">
+                <span class="order-info-label">房车租金</span>
+                <span class="order-info-value">¥1,200.00</span>
+            </div>
+            <div class="order-info-row">
+                <span class="order-info-label">保险费用</span>
+                <span class="order-info-value">¥160.00</span>
+            </div>
+            <div class="order-info-row">
+                <span class="order-info-label">清洁套装</span>
+                <span class="order-info-value">¥80.00</span>
+            </div>
+            <div class="order-info-row">
+                <span class="order-info-label">优惠券抵扣</span>
+                <span class="order-info-value">-¥100.00</span>
+            </div>
+            <div class="order-info-row order-info-total">
+                <span class="order-info-label">应付金额</span>
+                <span class="order-info-value">¥1,340.00</span>
+            </div>
+        </div>
+
+        <!-- 押金提醒 -->
+        <div class="deposit-reminder">
+            <div class="reminder-icon">💰</div>
+            <div class="reminder-content">
+                <div class="reminder-title">押金说明</div>
+                <div class="reminder-text">
+                    取车时需支付押金¥10,000（车辆押金¥5,000 + 违章押金¥5,000），支持微信/支付宝扫码支付
+                </div>
+            </div>
+        </div>
+
+        <!-- 支付方式卡片 -->
+        <div class="card">
+            <div class="card-title">选择支付方式</div>
+            <div class="payment-methods">
+                <!-- 钱包支付 -->
+                <div class="payment-method" onclick="toggleWalletSelection()">
+                    <div class="payment-checkbox-wrapper">
+                        <input type="checkbox" id="walletCheckbox" class="payment-checkbox" onchange="handleWalletChange()">
+                        <div class="payment-icon wallet">钱</div>
+                        <div class="payment-info">
+                            <div class="payment-name">钱包支付</div>
+                            <div class="payment-desc">使用账户余额支付，安全便捷</div>
+                        </div>
+                        <div class="payment-balance">余额: ¥2,680</div>
+                    </div>
+                </div>
+
+                <!-- 钱包支付金额选择框 -->
+                <div class="wallet-amount-section" id="walletAmountSection" style="display: none;">
+                    <div class="amount-input-group">
+                        <div class="input-label">使用余额</div>
+                        <div class="amount-input-wrapper">
+                            <span class="currency-symbol">¥</span>
+                            <input type="number" id="walletAmountInput" class="amount-input"
+                                   placeholder="0.00" min="0" max="2680" step="0.01"
+                                   oninput="updatePaymentCalculation()">
+                        </div>
+                        <div class="quick-amount-buttons">
+                            <button class="quick-amount-btn" onclick="setWalletAmount(1340)">全部</button>
+                            <button class="quick-amount-btn" onclick="setWalletAmount(1000)">¥1000</button>
+                            <button class="quick-amount-btn" onclick="setWalletAmount(500)">¥500</button>
+                        </div>
+                        <div class="remaining-amount">
+                            剩余需支付: <span class="remaining-amount-value" id="remainingAmount">¥1,340</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 微信支付 -->
+                <div class="payment-method" onclick="toggleThirdPartyPayment('wechat')">
+                    <div class="payment-checkbox-wrapper">
+                        <input type="checkbox" id="wechatCheckbox" class="payment-checkbox" onchange="handlePaymentChange()">
+                        <div class="payment-icon wechat">微</div>
+                        <div class="payment-info">
+                            <div class="payment-name">微信支付</div>
+                            <div class="payment-desc">推荐使用，支持信用卡储蓄卡</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 支付宝支付 -->
+                <div class="payment-method" onclick="toggleThirdPartyPayment('alipay')">
+                    <div class="payment-checkbox-wrapper">
+                        <input type="checkbox" id="alipayCheckbox" class="payment-checkbox" onchange="handlePaymentChange()">
+                        <div class="payment-icon alipay">支</div>
+                        <div class="payment-info">
+                            <div class="payment-name">支付宝支付</div>
+                            <div class="payment-desc">花呗分期，余额宝等多种支付方式</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部支付按钮 -->
+    <div class="payment-footer">
+        <button class="payment-button" id="payBtn" disabled onclick="confirmPay()">请选择支付方式</button>
+    </div>
+
+    <script>
+        // 全局变量
+        let walletUsageAmount = 0;
+        let selectedThirdParty = null;
+        let countdownTime = 898; // 14分58秒转换为秒
+
+        // 支付金额信息
+        const orderAmount = 1340;   // 订单金额
+        const walletBalance = 2680; // 钱包余额
+
+        // 切换钱包选择
+        function toggleWalletSelection() {
+            const walletCheckbox = document.getElementById('walletCheckbox');
+            const walletAmountSection = document.getElementById('walletAmountSection');
+
+            walletCheckbox.checked = !walletCheckbox.checked;
+
+            if (walletCheckbox.checked) {
+                walletAmountSection.style.display = 'block';
+                // 默认设置为支付全部金额
+                setWalletAmount(Math.min(orderAmount, walletBalance));
+            } else {
+                walletAmountSection.style.display = 'none';
+                walletUsageAmount = 0;
+            }
+
+            updatePaymentCalculation();
+        }
+
+        // 处理钱包复选框变化
+        function handleWalletChange() {
+            const walletCheckbox = document.getElementById('walletCheckbox');
+            const walletAmountSection = document.getElementById('walletAmountSection');
+
+            if (walletCheckbox.checked) {
+                walletAmountSection.style.display = 'block';
+                setWalletAmount(Math.min(orderAmount, walletBalance));
+            } else {
+                walletAmountSection.style.display = 'none';
+                walletUsageAmount = 0;
+            }
+
+            updatePaymentCalculation();
+        }
+
+        // 切换第三方支付选择（微信/支付宝互斥）
+        function toggleThirdPartyPayment(type) {
+            const wechatCheckbox = document.getElementById('wechatCheckbox');
+            const alipayCheckbox = document.getElementById('alipayCheckbox');
+
+            if (type === 'wechat') {
+                if (wechatCheckbox.checked) {
+                    wechatCheckbox.checked = false;
+                    selectedThirdParty = null;
+                } else {
+                    wechatCheckbox.checked = true;
+                    alipayCheckbox.checked = false;
+                    selectedThirdParty = 'wechat';
+                }
+            } else if (type === 'alipay') {
+                if (alipayCheckbox.checked) {
+                    alipayCheckbox.checked = false;
+                    selectedThirdParty = null;
+                } else {
+                    alipayCheckbox.checked = true;
+                    wechatCheckbox.checked = false;
+                    selectedThirdParty = 'alipay';
+                }
+            }
+
+            updatePaymentCalculation();
+        }
+
+        // 处理支付方式变化
+        function handlePaymentChange() {
+            const wechatCheckbox = document.getElementById('wechatCheckbox');
+            const alipayCheckbox = document.getElementById('alipayCheckbox');
+
+            if (wechatCheckbox.checked) {
+                alipayCheckbox.checked = false;
+                selectedThirdParty = 'wechat';
+            } else if (alipayCheckbox.checked) {
+                wechatCheckbox.checked = false;
+                selectedThirdParty = 'alipay';
+            } else {
+                selectedThirdParty = null;
+            }
+
+            updatePaymentCalculation();
+        }
+
+        // 设置钱包金额
+        function setWalletAmount(amount) {
+            const input = document.getElementById('walletAmountInput');
+            input.value = amount;
+            walletUsageAmount = amount;
+            updatePaymentCalculation();
+        }
+
+        // 更新支付计算
+        function updatePaymentCalculation() {
+            const input = document.getElementById('walletAmountInput');
+            const inputValue = parseFloat(input.value) || 0;
+
+            // 限制输入金额不超过余额和订单金额
+            const maxAmount = Math.min(walletBalance, orderAmount);
+            if (inputValue > maxAmount) {
+                input.value = maxAmount;
+                walletUsageAmount = maxAmount;
+            } else {
+                walletUsageAmount = inputValue;
+            }
+
+            // 计算剩余需支付金额
+            const remainingAmount = Math.max(0, orderAmount - walletUsageAmount);
+            document.getElementById('remainingAmount').textContent = `¥${remainingAmount.toFixed(2)}`;
+
+            // 更新支付按钮状态
+            updatePayButton();
+        }
+
+        // 更新支付按钮状态
+        function updatePayButton() {
+            const payBtn = document.getElementById('payBtn');
+            let canPay = false;
+            let payBtnText = '请选择支付方式';
+
+            const walletCheckbox = document.getElementById('walletCheckbox').checked;
+            const hasThirdParty = selectedThirdParty !== null;
+
+            // 计算实际支付情况
+            const remainingAmount = Math.max(0, orderAmount - walletUsageAmount);
+
+            if (walletCheckbox && walletUsageAmount > 0) {
+                if (remainingAmount <= 0) {
+                    // 钱包余额足够支付全部
+                    canPay = true;
+                    payBtnText = `确认支付 (钱包 ¥${walletUsageAmount.toFixed(2)})`;
+                } else if (hasThirdParty) {
+                    // 钱包 + 第三方支付
+                    const thirdPartyName = selectedThirdParty === 'wechat' ? '微信' : '支付宝';
+                    canPay = true;
+                    payBtnText = `确认支付 (钱包 ¥${walletUsageAmount.toFixed(2)} + ${thirdPartyName} ¥${remainingAmount.toFixed(2)})`;
+                } else {
+                    // 钱包不足，需要选择第三方支付
+                    payBtnText = '请选择补充支付方式';
+                }
+            } else if (!walletCheckbox && hasThirdParty) {
+                // 纯第三方支付
+                const thirdPartyName = selectedThirdParty === 'wechat' ? '微信' : '支付宝';
+                canPay = true;
+                payBtnText = `确认支付 (${thirdPartyName} ¥${orderAmount.toFixed(2)})`;
+            }
+
+            payBtn.disabled = !canPay;
+            payBtn.textContent = payBtnText;
+        }
+
+        // 确认支付
+        function confirmPay() {
+            const walletCheckbox = document.getElementById('walletCheckbox').checked;
+            const hasThirdParty = selectedThirdParty !== null;
+            const remainingAmount = Math.max(0, orderAmount - walletUsageAmount);
+
+            let paymentDetails = '';
+
+            if (walletCheckbox && walletUsageAmount > 0) {
+                if (remainingAmount <= 0) {
+                    paymentDetails = `钱包支付：¥${walletUsageAmount.toFixed(2)}`;
+                } else if (hasThirdParty) {
+                    const thirdPartyName = selectedThirdParty === 'wechat' ? '微信' : '支付宝';
+                    paymentDetails = `组合支付：钱包 ¥${walletUsageAmount.toFixed(2)} + ${thirdPartyName} ¥${remainingAmount.toFixed(2)}`;
+                }
+            } else if (hasThirdParty) {
+                const thirdPartyName = selectedThirdParty === 'wechat' ? '微信' : '支付宝';
+                paymentDetails = `${thirdPartyName}支付：¥${orderAmount.toFixed(2)}`;
+            }
+
+            alert(`支付成功！\n${paymentDetails}\n订单号：${generateOrderNumber()}`);
+        }
+
+        // 生成订单号
+        function generateOrderNumber() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            return `DD${year}${month}${day}${random}`;
+        }
+
+        // 倒计时功能
+        function updateCountdown() {
+            const minutes = Math.floor(countdownTime / 60);
+            const seconds = countdownTime % 60;
+            const display = `${minutes}分${seconds.toString().padStart(2, '0')}秒`;
+            document.getElementById('countdown').textContent = display;
+
+            if (countdownTime <= 0) {
+                alert('支付超时，订单已自动取消');
+                window.location.href = 'order-detail.html';
+                return;
+            }
+
+            countdownTime--;
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 启动倒计时
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // 立即更新一次
+
+            // 初始化支付按钮状态
+            updatePayButton();
+        });
+    </script>
+</body>
+</html>

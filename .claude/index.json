@@ -1,0 +1,205 @@
+{
+  "projectName": "daodaorv01",
+  "projectSummary": "DaoDaoRV01 房车租赁平台项目",
+  "lastUpdated": "2025-10-30T19:58:22.000Z",
+  "initializedAt": "2025-10-30T19:58:22.000Z",
+  "modules": [
+    {
+      "path": "backend",
+      "name": "后端API服务",
+      "type": "backend",
+      "language": "typescript",
+      "framework": "koa2",
+      "description": "基于Koa2 + TypeScript + TypeORM的核心API服务",
+      "entryFiles": [
+        "src/app.ts"
+      ],
+      "keyDirectories": [
+        "src/controllers",
+        "src/services",
+        "src/entities",
+        "src/routes",
+        "src/middlewares",
+        "src/utils",
+        "src/tasks",
+        "src/config"
+      ],
+      "testDirectories": [
+        "tests"
+      ],
+      "configFiles": [
+        "package.json",
+        "ormconfig.ts",
+        "tsconfig.json"
+      ],
+      "scanStatus": "scanned",
+      "coverage": "detailed"
+    },
+    {
+      "path": "admin-console",
+      "name": "PC管理后台",
+      "type": "frontend",
+      "language": "typescript",
+      "framework": "vue3",
+      "description": "基于Vue 3 + Vite + Element Plus的桌面管理界面",
+      "entryFiles": [
+        "src/main.ts",
+        "src/App.vue"
+      ],
+      "keyDirectories": [
+        "src/views",
+        "src/layouts",
+        "src/router",
+        "src/components"
+      ],
+      "testDirectories": [],
+      "configFiles": [
+        "package.json",
+        "vite.config.ts",
+        "tsconfig.json"
+      ],
+      "scanStatus": "scanned",
+      "coverage": "basic"
+    },
+    {
+      "path": "miniprogram",
+      "name": "C端小程序",
+      "type": "frontend",
+      "language": "javascript",
+      "framework": "uni-app",
+      "description": "基于uni-app + Vue 3的用户端应用，支持微信/支付宝/抖音/H5",
+      "entryFiles": [
+        "pages.json",
+        "main.js"
+      ],
+      "keyDirectories": [
+        "pages",
+        "components",
+        "static"
+      ],
+      "testDirectories": [],
+      "configFiles": [
+        "package.json",
+        "pages.json",
+        "manifest.json"
+      ],
+      "scanStatus": "scanned",
+      "coverage": "basic"
+    },
+    {
+      "path": "mobile-admin",
+      "name": "移动端管理",
+      "type": "frontend",
+      "language": "javascript",
+      "framework": "uni-app",
+      "description": "基于uni-app + Vue 3的移动管理界面",
+      "entryFiles": [
+        "pages.json",
+        "main.js"
+      ],
+      "keyDirectories": [
+        "pages",
+        "components",
+        "static"
+      ],
+      "testDirectories": [],
+      "configFiles": [
+        "package.json",
+        "pages.json",
+        "manifest.json"
+      ],
+      "scanStatus": "scanned",
+      "coverage": "basic"
+    }
+  ],
+  "scanCoverage": {
+    "totalFiles": 3000,
+    "scannedFiles": 150,
+    "coveragePercentage": 5,
+    "ignoredDirectories": [
+      "node_modules",
+      "dist",
+      "build",
+      ".git",
+      ".snapshots",
+      ".cursor",
+      ".vscode",
+      ".husky"
+    ],
+    "ignoredFiles": 2850,
+    "truncated": false
+  },
+  "gaps": [
+    {
+      "module": "admin-console",
+      "missingAreas": [
+        "详细的组件结构",
+        "状态管理实现",
+        "API接口集成",
+        "构建配置详情"
+      ],
+      "recommendation": "扫描src/components、src/stores、src/api目录"
+    },
+    {
+      "module": "miniprogram",
+      "missingAreas": [
+        "业务逻辑实现",
+        "API调用封装",
+        "状态管理配置",
+        "组件交互逻辑"
+      ],
+      "recommendation": "扫描具体的业务页面和组件实现"
+    },
+    {
+      "module": "mobile-admin",
+      "missingAreas": [
+        "管理功能实现",
+        "API集成",
+        "权限控制",
+        "业务流程"
+      ],
+      "recommendation": "扫描管理相关的页面和功能实现"
+    },
+    {
+      "module": "backend",
+      "missingAreas": [
+        "具体的业务逻辑实现",
+        "中间件实现细节",
+        "定时任务配置",
+        "错误处理机制"
+      ],
+      "recommendation": "深入扫描services和controllers的具体实现"
+    }
+  ],
+  "nextScanRecommendations": [
+    "admin-console/src/components - 组件库和UI实现",
+    "admin-console/src/stores - Pinia状态管理",
+    "miniprogram/pages/index - 小程序核心业务页面",
+    "mobile-admin/pages/order - 移动端订单管理功能",
+    "backend/src/services - 核心业务逻辑层",
+    "backend/src/middlewares - 认证和权限中间件"
+  ],
+  "architectureSummary": {
+    "type": "monorepo",
+    "applications": 4,
+    "mainTechStack": {
+      "backend": "Node.js + Koa2 + TypeScript + TypeORM + MySQL + Redis",
+      "admin": "Vue 3 + Vite + Element Plus + TypeScript",
+      "mobile": "uni-app + Vue 3 + uView Plus"
+    },
+    "businessDomains": [
+      "车辆管理",
+      "用户管理",
+      "订单管理",
+      "钱包系统",
+      "支付集成",
+      "众筹系统",
+      "营地管理",
+      "旅游管理",
+      "特惠活动",
+      "客服系统",
+      "优惠券",
+      "社区功能"
+    ]
+  }
+}

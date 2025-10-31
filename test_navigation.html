@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>房车列表跳转测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        button {
+            background-color: #409eff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #337ecc;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚐 房车列表功能测试</h1>
+
+    <div class="test-section">
+        <h2>📋 测试概述</h2>
+        <p>本页面用于测试从首页预订模块到房车列表页的完整跳转流程</p>
+        <div class="test-result info">
+            <strong>修正内容：</strong>
+            <ul>
+                <li>✅ 首页handleSearch函数已修正为正确跳转到房车列表页</li>
+                <li>✅ 后端房车列表API已实现并正常工作</li>
+                <li>✅ 查询参数传递机制已完善</li>
+                <li>✅ uview-plus CSS变量和mixin问题已修复</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 API测试</h2>
+        <button onclick="testVehicleListAPI()">测试房车列表API</button>
+        <button onclick="testActiveVehiclesAPI()">测试活跃车型API</button>
+        <div id="api-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📱 预订参数测试</h2>
+        <p>模拟首页预订模块的查询参数：</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0;">
+            <label>取车城市ID: <input type="text" id="pickupCityId" value="1"></label>
+            <label>取车门店ID: <input type="text" id="pickupStoreId" value="1"></label>
+            <label>取车时间: <input type="datetime-local" id="pickupTime" value="2025-11-01T09:00"></label>
+            <label>还车时间: <input type="datetime-local" id="returnTime" value="2025-11-03T18:00"></label>
+        </div>
+        <button onclick="testParameterGeneration()">生成跳转URL</button>
+        <button onclick="testVehicleListWithParams()">测试带参数的API调用</button>
+        <div id="param-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 测试结果</h2>
+        <div id="test-results">
+            <div class="test-result info">
+                点击上方按钮开始测试各项功能
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3000/api';
+
+        function addResult(containerId, message, type = 'info') {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = message;
+            container.appendChild(div);
+        }
+
+        function clearResults(containerId) {
+            document.getElementById(containerId).innerHTML = '';
+        }
+
+        async function testVehicleListAPI() {
+            clearResults('api-results');
+            addResult('api-results', '正在测试房车列表API...', 'info');
+
+            try {
+                const response = await fetch(`${API_BASE}/vehicle-models?page=1&pageSize=5&isActive=true&sortBy=comprehensive`);
+                const data = await response.json();
+
+                if (data.success) {
+                    addResult('api-results', `✅ API调用成功！返回${data.data.list.length}条房车数据`, 'success');
+                    addResult('api-results', `总数量: ${data.data.total}`, 'info');
+
+                    // 显示第一条房车信息
+                    if (data.data.list.length > 0) {
+                        const vehicle = data.data.list[0];
+                        addResult('api-results', `示例车型: ${vehicle.modelName} - ¥${vehicle.dailyPrice}/天`, 'info');
+                        addResult('api-results', `综合评分: ${vehicle.comprehensiveScore || '未计算'}`, 'info');
+                    }
+                } else {
+                    addResult('api-results', `❌ API调用失败: ${data.message}`, 'error');
+                }
+            } catch (error) {
+                addResult('api-results', `❌ 网络错误: ${error.message}`, 'error');
+            }
+        }
+
+        async function testActiveVehiclesAPI() {
+            addResult('api-results', '正在测试活跃车型API...', 'info');
+
+            try {
+                const response = await fetch(`${API_BASE}/vehicle-models/active`);
+                const data = await response.json();
+
+                if (data.success) {
+                    addResult('api-results', `✅ 活跃车型API成功！返回${data.data.length}条活跃车型`, 'success');
+                } else {
+                    addResult('api-results', `❌ 活跃车型API失败: ${data.message}`, 'error');
+                }
+            } catch (error) {
+                addResult('api-results', `❌ 网络错误: ${error.message}`, 'error');
+            }
+        }
+
+        function testParameterGeneration() {
+            clearResults('param-results');
+
+            const params = {
+                pickupCityId: document.getElementById('pickupCityId').value,
+                pickupStoreId: document.getElementById('pickupStoreId').value,
+                pickupTime: document.getElementById('pickupTime').value,
+                returnTime: document.getElementById('returnTime').value
+            };
+
+            const queryString = Object.entries(params)
+                .map(([key, value]) => `${key}=${encodeURIComponent(String(value))}`)
+                .join('&');
+
+            const jumpUrl = `/pages/vehicle-list/index?${queryString}`;
+
+            addResult('param-results', '📋 生成的跳转参数：', 'info');
+            addResult('param-results', `<pre>${JSON.stringify(params, null, 2)}</pre>`, 'info');
+            addResult('param-results', '🔗 小程序跳转URL：', 'info');
+            addResult('param-results', `<pre>${jumpUrl}</pre>`, 'success');
+        }
+
+        async function testVehicleListWithParams() {
+            clearResults('test-results');
+            addResult('test-results', '正在测试带参数的房车列表API调用...', 'info');
+
+            const params = {
+                page: 1,
+                pageSize: 10,
+                isActive: true,
+                sortBy: 'comprehensive',
+                city: document.getElementById('pickupCityId').value
+            };
+
+            const queryString = Object.entries(params)
+                .filter(([_, value]) => value !== undefined && value !== '')
+                .map(([key, value]) => `${key}=${encodeURIComponent(String(value))}`)
+                .join('&');
+
+            try {
+                const response = await fetch(`${API_BASE}/vehicle-models?${queryString}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    addResult('test-results', `✅ 带参数的API调用成功！`, 'success');
+                    addResult('test-results', `查询参数: <pre>${queryString}</pre>`, 'info');
+                    addResult('test-results', `返回结果: ${data.data.list.length}条房车数据`, 'info');
+
+                    // 显示每辆车的综合评分
+                    data.data.list.forEach((vehicle, index) => {
+                        addResult('test-results',
+                            `${index + 1}. ${vehicle.modelName} - 评分: ${vehicle.comprehensiveScore || '未计算'} - ¥${vehicle.dailyPrice}/天`,
+                            'info');
+                    });
+                } else {
+                    addResult('test-results', `❌ API调用失败: ${data.message}`, 'error');
+                }
+            } catch (error) {
+                addResult('test-results', `❌ 网络错误: ${error.message}`, 'error');
+            }
+        }
+
+        // 页面加载时自动测试基础API
+        window.onload = function() {
+            addResult('test-results', '🚀 页面加载完成，可以开始测试', 'info');
+            testVehicleListAPI();
+        };
+    </script>
+</body>
+</html>

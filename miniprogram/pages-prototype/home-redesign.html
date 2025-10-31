@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>叨叨房车 - 首页重新设计（严格遵循需求）</title>
+    <style>
+      /* ==================== 全局样式 ==================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        background: #f8f8f8;
+        color: rgba(0, 0, 0, 0.9);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page {
+        max-width: 750px;
+        margin: 0 auto;
+        background: #f8f8f8;
+        min-height: 100vh;
+        padding-bottom: 120px;
+      }
+
+      /* ==================== 1. 顶部公告栏 ==================== */
+      .notice-bar {
+        background: linear-gradient(135deg, #fff7e6 0%, #ffe7ba 100%);
+        padding: 16px 32px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .notice-icon {
+        font-size: 32px;
+        flex-shrink: 0;
+      }
+
+      .notice-content {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+        height: 40px;
+      }
+
+      .notice-text {
+        font-size: 28px;
+        color: rgba(0, 0, 0, 0.9);
+        white-space: nowrap;
+        animation: scroll-left 20s linear infinite;
+        display: inline-block;
+        padding-left: 100%;
+      }
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .notice-arrow {
+        font-size: 32px;
+        color: rgba(0, 0, 0, 0.6);
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .notice-arrow:hover {
+        color: #ff9f29;
+        transform: translateX(4px);
+      }
+
+      /* ==================== 2. 轮播广告 ==================== */
+      .banner-swiper {
+        margin: 24px 32px;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        height: 360px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      .banner-item {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ff9f29 0%, #ffb347 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 48px;
+        font-weight: 600;
+      }
+
+      .banner-indicators {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+      }
+
+      .indicator {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .indicator.active {
+        background: #ff9f29;
+        width: 32px;
+        border-radius: 8px;
+      }
+
+      /* ==================== 3. 房车预订模块（核心） ==================== */
+      .booking-module {
+        background: #ffffff;
+        margin: 24px 32px;
+        padding: 32px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .module-title {
+        font-size: 36px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.9);
+        margin-bottom: 32px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* 地点卡片 */
+      .location-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s;
+      }
+
+      .location-card:hover {
+        box-shadow: 0 4px 20px rgba(255, 159, 41, 0.15);
+      }
+
+      .location-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        cursor: pointer;
+        padding: 16px;
+        margin: -16px;
+        border-radius: 12px;
+        transition: all 0.3s;
+      }
+
+      .location-row:hover {
+        background: rgba(255, 159, 41, 0.05);
+      }
+
+      .location-icon {
+        font-size: 32px;
+        flex-shrink: 0;
+      }
+
+      .location-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .location-main {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+
+      .city-select,
+      .store-select {
+        border: none;
+        background: transparent;
+        font-size: 30px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.9);
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .city-select {
+        width: 80px;
+      }
+
+      .store-select {
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .city-select::placeholder,
+      .store-select::placeholder {
+        color: rgba(0, 0, 0, 0.3);
+      }
+
+      .location-divider {
+        color: rgba(0, 0, 0, 0.3);
+        font-size: 24px;
+      }
+
+      .location-hint {
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .location-arrow {
+        font-size: 36px;
+        color: rgba(0, 0, 0, 0.3);
+        flex-shrink: 0;
+      }
+
+      /* 异地还车开关 */
+      .remote-switch {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+        margin-top: 16px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+      }
+
+      .switch-label {
+        font-size: 28px;
+        color: rgba(0, 0, 0, 0.9);
+      }
+
+      .switch-toggle {
+        width: 52px;
+        height: 32px;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .switch-toggle.checked {
+        background: #ff9f29;
+      }
+
+      .switch-slider {
+        width: 28px;
+        height: 28px;
+        background: #ffffff;
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: all 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .switch-toggle.checked .switch-slider {
+        left: 22px;
+      }
+
+      .location-divider-line {
+        height: 1px;
+        background: rgba(0, 0, 0, 0.08);
+        margin: 16px 0;
+      }
+
+      /* 时间卡片 */
+      .datetime-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .datetime-card:hover {
+        box-shadow: 0 4px 20px rgba(255, 159, 41, 0.15);
+        transform: translateY(-2px);
+      }
+
+      .datetime-card:active {
+        transform: translateY(0);
+      }
+
+      .datetime-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .datetime-icon {
+        font-size: 28px;
+        flex-shrink: 0;
+      }
+
+      .datetime-content {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .datetime-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .datetime-item {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .datetime-label {
+        font-size: 22px;
+        color: rgba(0, 0, 0, 0.5);
+        margin-bottom: 4px;
+      }
+
+      .datetime-value {
+        font-size: 26px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.9);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .datetime-separator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        flex-shrink: 0;
+      }
+
+      .separator-line {
+        width: 1px;
+        height: 16px;
+        background: rgba(0, 0, 0, 0.15);
+      }
+
+      .rental-days {
+        font-size: 20px;
+        font-weight: 600;
+        color: #ff9f29;
+        white-space: nowrap;
+      }
+
+      .datetime-arrow {
+        font-size: 32px;
+        color: rgba(0, 0, 0, 0.3);
+        flex-shrink: 0;
+      }
+
+      .checkbox {
+        width: 32px;
+        height: 32px;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .checkbox.checked {
+        background: #ff9f29;
+        border-color: #ff9f29;
+        color: #ffffff;
+      }
+
+      .checkbox-label {
+        font-size: 28px;
+        color: rgba(0, 0, 0, 0.9);
+      }
+
+      /* 异地还车字段显示动画 */
+      #remote-return-fields {
+        overflow: hidden;
+        transition: all 0.3s ease;
+        margin-bottom: 16px;
+      }
+
+      #remote-return-fields.hidden {
+        display: none !important;
+      }
+
+      /* 通用隐藏类 */
+      .hidden {
+        display: none !important;
+      }
+
+      .search-button {
+        width: 100%;
+        padding: 28px;
+        background: #ff9f29;
+        color: #ffffff;
+        border: none;
+        border-radius: 12px;
+        font-size: 32px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(255, 159, 41, 0.3);
+        margin-top: 32px;
+      }
+
+      .search-button:hover {
+        background: rgba(255, 159, 41, 0.9);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 159, 41, 0.4);
+      }
+
+      .search-button:active {
+        transform: scale(0.98);
+      }
+
+      /* ==================== 4. 优惠券广告 ==================== */
+      .coupon-banner {
+        background: linear-gradient(135deg, #ff4d4f 0%, #ff7875 100%);
+        margin: 24px 32px;
+        padding: 24px 32px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .coupon-banner:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 77, 79, 0.4);
+      }
+
+      .coupon-content {
+        flex: 1;
+      }
+
+      .coupon-tag {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+
+      .coupon-title {
+        font-size: 32px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 4px;
+      }
+
+      .coupon-button {
+        background: #ffffff;
+        color: #ff4d4f;
+        padding: 16px 32px;
+        border-radius: 32px;
+        font-size: 28px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* ==================== 5. 金刚区 ==================== */
+      .service-grid {
+        background: #ffffff;
+        margin: 24px 32px;
+        padding: 32px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        margin-top: 24px;
+      }
+
+      .grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .grid-item:hover {
+        background: rgba(255, 159, 41, 0.1);
+        transform: translateY(-4px);
+      }
+
+      .grid-icon {
+        font-size: 64px;
+        line-height: 1;
+      }
+
+      .grid-text {
+        font-size: 28px;
+        color: rgba(0, 0, 0, 0.9);
+        text-align: center;
+      }
+
+      /* ==================== 6. 社区热门推荐 ==================== */
+      .community-section {
+        background: #ffffff;
+        margin: 24px 32px;
+        padding: 32px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      /* 分类 Tab */
+      .category-tabs {
+        display: flex;
+        gap: 12px;
+        margin: 24px 0;
+        padding: 6px;
+        background: #f7f8fa;
+        border-radius: 12px;
+      }
+
+      .category-tabs .tab-item {
+        flex: 1;
+        padding: 12px 0;
+        text-align: center;
+        font-size: 28px;
+        color: rgba(0, 0, 0, 0.6);
+        border-radius: 8px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .category-tabs .tab-item.active {
+        background: #ffffff;
+        color: #ff9f29;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      /* 内容列表 */
+      .community-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .community-card {
+        display: flex;
+        gap: 16px;
+        padding: 20px;
+        background: #f7f8fa;
+        border-radius: 16px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .community-card:hover {
+        background: #ffffff;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .community-cover {
+        width: 180px;
+        height: 135px;
+        background: linear-gradient(135deg, #8860d0 0%, #a78bfa 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+
+      .community-content {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .community-title {
+        font-size: 30px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.9);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.4;
+      }
+
+      .community-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .author-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .author-avatar {
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+
+      .author-name {
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.6);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .author-badge {
+        padding: 2px 8px;
+        background: linear-gradient(135deg, #ff9f29 0%, #ffb84d 100%);
+        color: #ffffff;
+        border-radius: 4px;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .post-stats {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.5);
+        flex-shrink: 0;
+      }
+
+      .community-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .community-tags .tag {
+        padding: 6px 12px;
+        background: rgba(136, 96, 208, 0.1);
+        color: #8860d0;
+        border-radius: 6px;
+        font-size: 22px;
+      }
+
+      /* ==================== 7. 底部 TabBar ==================== */
+      .tabbar {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 750px;
+        width: 100%;
+        background: #ffffff;
+        display: flex;
+        justify-content: space-around;
+        padding: 16px 0;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+        z-index: 100;
+      }
+
+      .tab-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 8px 24px;
+      }
+
+      .tab-item:hover {
+        transform: translateY(-2px);
+      }
+
+      .tab-icon {
+        font-size: 48px;
+        line-height: 1;
+      }
+
+      .tab-text {
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .tab-item.active .tab-text {
+        color: #ff9f29;
+        font-weight: 500;
+      }
+
+      /* ==================== 响应式设计 ==================== */
+      @media (max-width: 750px) {
+        .page {
+          max-width: 100%;
+        }
+
+        .tabbar {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- 1. 顶部公告栏 -->
+      <div class="notice-bar">
+        <div class="notice-icon">📢</div>
+        <div class="notice-content">
+          <div class="notice-text">
+            【限时优惠】国庆房车租赁立减500元，先到先得！
+          </div>
+        </div>
+        <div class="notice-arrow">›</div>
+      </div>
+
+      <!-- 2. 轮播广告 -->
+      <div class="banner-swiper">
+        <div class="banner-item">营销活动轮播图</div>
+        <div class="banner-indicators">
+          <div class="indicator active"></div>
+          <div class="indicator"></div>
+          <div class="indicator"></div>
+        </div>
+      </div>
+
+      <!-- 3. 房车预订模块（核心） -->
+      <div class="booking-module">
+        <div class="module-title">
+          <span>🚗</span>
+          <span>房车预订</span>
+        </div>
+
+        <!-- 取还车地点卡片 -->
+        <div class="location-card">
+          <div class="location-row">
+            <div class="location-icon">📍</div>
+            <div class="location-content">
+              <div class="location-main">
+                <input
+                  type="text"
+                  class="city-select"
+                  value="深圳"
+                  readonly
+                  placeholder="选择城市"
+                />
+                <span class="location-divider">·</span>
+                <input
+                  type="text"
+                  class="store-select"
+                  value="深圳湾门店"
+                  readonly
+                  placeholder="选择门店"
+                />
+              </div>
+              <div class="location-hint">取车地点</div>
+            </div>
+            <div class="location-arrow">›</div>
+          </div>
+
+          <!-- 异地还车开关 -->
+          <div class="remote-switch" id="remote-return-checkbox">
+            <div class="switch-label">异地还车</div>
+            <div class="switch-toggle" id="remote-return-icon">
+              <div class="switch-slider"></div>
+            </div>
+          </div>
+
+          <!-- 异地还车地点（默认隐藏） -->
+          <div id="remote-return-fields" class="hidden">
+            <div class="location-divider-line"></div>
+            <div class="location-row">
+              <div class="location-icon">📍</div>
+              <div class="location-content">
+                <div class="location-main">
+                  <input
+                    type="text"
+                    class="city-select"
+                    value="深圳"
+                    readonly
+                    placeholder="选择城市"
+                  />
+                  <span class="location-divider">·</span>
+                  <input
+                    type="text"
+                    class="store-select"
+                    value="深圳湾门店"
+                    readonly
+                    placeholder="选择门店"
+                  />
+                </div>
+                <div class="location-hint">还车地点</div>
+              </div>
+              <div class="location-arrow">›</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 取还车时间卡片 -->
+        <div class="datetime-card">
+          <div class="datetime-row">
+            <div class="datetime-icon">📅</div>
+            <div class="datetime-content">
+              <div class="datetime-main">
+                <div class="datetime-item">
+                  <div class="datetime-label">取车</div>
+                  <div class="datetime-value">01-15 周一 10:00</div>
+                </div>
+                <div class="datetime-separator">
+                  <div class="separator-line"></div>
+                  <div class="rental-days">2天</div>
+                  <div class="separator-line"></div>
+                </div>
+                <div class="datetime-item">
+                  <div class="datetime-label">还车</div>
+                  <div class="datetime-value">01-17 周三 10:00</div>
+                </div>
+              </div>
+            </div>
+            <div class="datetime-arrow">›</div>
+          </div>
+        </div>
+
+        <button class="search-button">查询可用房车</button>
+      </div>
+
+      <!-- 4. 优惠券广告 -->
+      <div class="coupon-banner">
+        <div class="coupon-content">
+          <div class="coupon-tag">新人专享</div>
+          <div class="coupon-title">首单立减 200 元</div>
+        </div>
+        <div class="coupon-button">
+          <span>立即领取</span>
+          <span>→</span>
+        </div>
+      </div>
+
+      <!-- 5. 金刚区 -->
+      <div class="service-grid">
+        <div class="module-title">快捷服务</div>
+        <div class="grid-container">
+          <div class="grid-item">
+            <div class="grid-icon">🚗</div>
+            <div class="grid-text">特惠租车</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">🎫</div>
+            <div class="grid-text">优惠券</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">⛺</div>
+            <div class="grid-text">营地预订</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">🗺️</div>
+            <div class="grid-text">定制旅游</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">👥</div>
+            <div class="grid-text">众筹房车</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">💰</div>
+            <div class="grid-text">推广分享</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">🏆</div>
+            <div class="grid-text">加盟合作</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">💎</div>
+            <div class="grid-text">PLUS会员</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. 社区热门推荐 -->
+      <div class="community-section">
+        <div class="module-title">
+          <span>⭐</span>
+          <span>社区热门推荐</span>
+        </div>
+
+        <!-- 分类 Tab -->
+        <div class="category-tabs">
+          <div class="tab-item active">全部</div>
+          <div class="tab-item">攻略</div>
+          <div class="tab-item">体验</div>
+          <div class="tab-item">活动</div>
+        </div>
+
+        <!-- 内容列表 -->
+        <div class="community-list">
+          <div class="community-card">
+            <div class="community-cover">封面图</div>
+            <div class="community-content">
+              <div class="community-title">
+                川藏线房车自驾攻略 | 10天9夜完整路线
+              </div>
+              <div class="community-meta">
+                <div class="author-info">
+                  <span class="author-avatar">👤</span>
+                  <span class="author-name">房车旅行家</span>
+                  <span class="author-badge">认证</span>
+                </div>
+                <div class="post-stats">
+                  <span>👍 1.2k</span>
+                  <span>👁 5.8k</span>
+                </div>
+              </div>
+              <div class="community-tags">
+                <span class="tag">川藏线</span>
+                <span class="tag">自驾攻略</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="community-card">
+            <div class="community-cover">封面图</div>
+            <div class="community-content">
+              <div class="community-title">新手第一次开房车的真实体验分享</div>
+              <div class="community-meta">
+                <div class="author-info">
+                  <span class="author-avatar">👤</span>
+                  <span class="author-name">旅行小白</span>
+                </div>
+                <div class="post-stats">
+                  <span>👍 856</span>
+                  <span>👁 3.2k</span>
+                </div>
+              </div>
+              <div class="community-tags">
+                <span class="tag">新手体验</span>
+                <span class="tag">房车租赁</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="community-card">
+            <div class="community-cover">封面图</div>
+            <div class="community-content">
+              <div class="community-title">
+                【活动招募】五一房车露营大会，一起去看星空
+              </div>
+              <div class="community-meta">
+                <div class="author-info">
+                  <span class="author-avatar">👤</span>
+                  <span class="author-name">露营组织者</span>
+                  <span class="author-badge">官方</span>
+                </div>
+                <div class="post-stats">
+                  <span>👍 2.1k</span>
+                  <span>👁 8.5k</span>
+                </div>
+              </div>
+              <div class="community-tags">
+                <span class="tag">活动招募</span>
+                <span class="tag">露营</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. 底部 TabBar -->
+    <div class="tabbar">
+      <div class="tab-item active">
+        <div class="tab-icon">🏠</div>
+        <div class="tab-text">首页</div>
+      </div>
+      <div class="tab-item">
+        <div class="tab-icon">👥</div>
+        <div class="tab-text">社区</div>
+      </div>
+      <div class="tab-item">
+        <div class="tab-icon">💬</div>
+        <div class="tab-text">客服</div>
+      </div>
+      <div class="tab-item">
+        <div class="tab-icon">👤</div>
+        <div class="tab-text">我的</div>
+      </div>
+    </div>
+
+    <script>
+      // 轮播图自动切换
+      let currentSlide = 0;
+      const indicators = document.querySelectorAll(".indicator");
+
+      function switchSlide() {
+        indicators[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % indicators.length;
+        indicators[currentSlide].classList.add("active");
+      }
+
+      setInterval(switchSlide, 4000);
+
+      // 点击指示器切换
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+          indicators[currentSlide].classList.remove("active");
+          currentSlide = index;
+          indicators[currentSlide].classList.add("active");
+        });
+      });
+
+      // 异地还车开关
+      const remoteReturnCheckbox = document.getElementById(
+        "remote-return-checkbox"
+      );
+      const remoteReturnToggle = document.getElementById("remote-return-icon");
+      const remoteReturnFields = document.getElementById(
+        "remote-return-fields"
+      );
+      let isRemoteReturn = false;
+
+      remoteReturnCheckbox.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        isRemoteReturn = !isRemoteReturn;
+        console.log("异地还车状态:", isRemoteReturn);
+
+        if (isRemoteReturn) {
+          remoteReturnToggle.classList.add("checked");
+          remoteReturnFields.classList.remove("hidden");
+          remoteReturnFields.style.display = "block";
+        } else {
+          remoteReturnToggle.classList.remove("checked");
+          remoteReturnFields.classList.add("hidden");
+          remoteReturnFields.style.display = "none";
+        }
+      });
+
+      // 地点卡片点击
+      document.querySelectorAll(".location-row").forEach((row) => {
+        row.addEventListener("click", () => {
+          console.log("点击了地点选择");
+          alert(
+            "📍 地点选择器\n\n请选择取车/还车城市和门店\n（这是原型演示，实际会弹出地点选择组件）"
+          );
+        });
+      });
+
+      // 时间卡片点击
+      const datetimeCard = document.querySelector(".datetime-card");
+      if (datetimeCard) {
+        datetimeCard.addEventListener("click", () => {
+          console.log("点击了时间选择器");
+          alert(
+            "📅 日历选择器\n\n请选择取车和还车时间\n（这是原型演示，实际会弹出日历组件）"
+          );
+        });
+      }
+
+      // 表单交互
+      document.querySelectorAll(".form-input").forEach((input) => {
+        input.addEventListener("click", () => {
+          const label = input.previousElementSibling.textContent;
+          console.log("打开选择器:", label);
+          alert(`打开${label}选择器`);
+        });
+      });
+
+      // 搜索按钮
+      document.querySelector(".search-button").addEventListener("click", () => {
+        console.log("查询可用房车");
+        alert("跳转到房车列表页");
+      });
+
+      // 公告栏点击
+      document.querySelector(".notice-arrow").addEventListener("click", () => {
+        console.log("查看公告详情");
+        alert("跳转到公告详情页");
+      });
+
+      // 优惠券广告点击
+      document.querySelector(".coupon-banner").addEventListener("click", () => {
+        console.log("领取优惠券");
+        alert("跳转到优惠券商城");
+      });
+
+      // 金刚区点击
+      document.querySelectorAll(".grid-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const text = item.querySelector(".grid-text").textContent;
+          console.log("点击金刚区:", text);
+          alert(`跳转到${text}页面`);
+        });
+      });
+
+      // 推荐内容点击
+      document.querySelectorAll(".recommend-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const title = card.querySelector(".recommend-title").textContent;
+          console.log("点击推荐内容:", title);
+          alert(`跳转到房车详情页\n${title}`);
+        });
+      });
+
+      // TabBar 切换
+      document.querySelectorAll(".tab-item").forEach((item, index) => {
+        item.addEventListener("click", () => {
+          document
+            .querySelectorAll(".tab-item")
+            .forEach((tab) => tab.classList.remove("active"));
+          item.classList.add("active");
+          const tabText = item.querySelector(".tab-text").textContent;
+          console.log("切换 Tab:", tabText);
+          if (index !== 0) {
+            alert(`切换到${tabText}页面`);
+          }
+        });
+      });
+
+      // 页面加载完成提示
+      console.log("✅ 首页原型加载完成（严格遵循需求文档）");
+      console.log("📱 设计规范: v2.0");
+      console.log("🎨 主色调: 橙色 (#FF9F29)");
+      console.log("📋 包含所有需求模块:");
+      console.log("  1. 顶部公告栏 ✅");
+      console.log("  2. 轮播广告 ✅");
+      console.log("  3. 房车预订模块（含所有字段）✅");
+      console.log("  4. 优惠券广告 ✅");
+      console.log("  5. 金刚区（8个入口）✅");
+      console.log("  6. 推荐内容区 ✅");
+      console.log("  7. 底部 TabBar ✅");
+    </script>
+  </body>
+</html>

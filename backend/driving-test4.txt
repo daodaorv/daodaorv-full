@@ -1,0 +1,32 @@
+﻿
+> daodao-rv-backend@1.0.0 test
+> jest tests/auth.test.ts --testNamePattern=搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡
+
+node.exe : ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+所在位置 行:1 字符: 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ts-jest[ts-jest...ated. Please do:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+FAIL tests/auth.test.ts
+  鈼?Test suite failed to run
+
+    [96msrc/controllers/auth.controller.ts[0m:[93m168[0m:[93m7[0m - [91merror[0m[90m TS2304: [0mCannot find name 'logger'.
+
+    [7m168[0m       logger.info('鏀跺埌椹剧収璁よ瘉璇锋眰', {
+    [7m   [0m [91m      ~~~~~~[0m
+    [96msrc/controllers/auth.controller.ts[0m:[93m178[0m:[93m9[0m - [91merror[0m[90m TS2304: [0mCannot find name 'logger'.
+
+    [7m178[0m         logger.warn('椹剧収璧勬枡涓嶅畬鏁?, {
+    [7m   [0m [91m        ~~~~~~[0m
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        3.766 s
+Ran all test suites matching /tests\\auth.test.ts/i with tests matching "搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡".

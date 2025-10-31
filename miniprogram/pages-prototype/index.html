@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>叨叨房车 - HTML原型展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #8860d0 0%, #a78bdb 100%);
+            min-height: 100vh;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .prototype-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .prototype-info h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .prototype-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .prototype-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .prototype-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .prototype-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #8860d0;
+        }
+
+        .prototype-desc {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.6);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .prototype-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: rgba(136, 96, 208, 0.1);
+            color: #8860d0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tag.orange {
+            background: rgba(255, 159, 41, 0.1);
+            color: #ff9f29;
+        }
+
+        .tag.green {
+            background: rgba(103, 194, 58, 0.1);
+            color: #67c23a;
+        }
+
+        .prototype-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            flex: 1;
+            height: 44px;
+            border-radius: 12px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: #ff9f29;
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 159, 41, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 159, 41, 0.9);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8e8;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .instructions h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #8860d0;
+        }
+
+        .instructions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .instructions li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .instructions li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #67c23a;
+            font-weight: bold;
+        }
+
+        .design-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 40px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .design-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .design-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .design-info li {
+            padding: 4px 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 12px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .prototype-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <div class="header">
+            <h1>🚗 叨叨房车小程序</h1>
+            <p>HTML原型展示 - 核心业务流程页面设计方案</p>
+        </div>
+
+        <!-- 原型信息 -->
+        <div class="prototype-info">
+            <h2>📋 原型说明</h2>
+            <p>本HTML原型基于叨叨房车设计指南规范，采用极简主义美学与功能完美平衡的设计理念。配色方案遵循品牌色彩系统，橙色主题为主色调，紫色会员主题为辅，确保视觉一致性和用户体验的流畅性。</p>
+        </div>
+
+        <!-- 原型卡片网格 -->
+        <div class="prototype-grid">
+            <!-- 订单确认页面 -->
+            <div class="prototype-card">
+                <h3 class="prototype-title">📝 订单确认页面</h3>
+                <p class="prototype-desc">租赁流程的核心页面，包含房车信息、日期选择、保险方案、附加服务、优惠券和费用明细的完整展示，支持实时价格计算。</p>
+                <div class="prototype-tags">
+                    <span class="tag orange">核心页面</span>
+                    <span class="tag">表单交互</span>
+                    <span class="tag">价格计算</span>
+                    <span class="tag">协议确认</span>
+                </div>
+                <div class="prototype-actions">
+                    <a href="order-confirm.html" class="btn btn-primary" target="_blank">
+                        📱 查看原型
+                    </a>
+                    <button class="btn btn-secondary" onclick="showInfo('order-confirm')">
+                        📊 设计说明
+                    </button>
+                </div>
+            </div>
+
+            <!-- 支付页面 -->
+            <div class="prototype-card">
+                <h3 class="prototype-title">💳 支付页面</h3>
+                <p class="prototype-desc">支持钱包、微信、支付宝三种支付方式，包含倒计时、支付安全提示、余额检查等功能，提供完整的支付体验流程。</p>
+                <div class="prototype-tags">
+                    <span class="tag orange">核心页面</span>
+                    <span class="tag">支付集成</span>
+                    <span class="tag">安全验证</span>
+                    <span class="tag green">钱包支付</span>
+                </div>
+                <div class="prototype-actions">
+                    <a href="payment.html" class="btn btn-primary" target="_blank">
+                        📱 查看原型
+                    </a>
+                    <button class="btn btn-secondary" onclick="showInfo('payment')">
+                        📊 设计说明
+                    </button>
+                </div>
+            </div>
+
+            <!-- 订单详情页面 -->
+            <div class="prototype-card">
+                <h3 class="prototype-title">📋 订单详情页面</h3>
+                <p class="prototype-desc">完整的订单状态展示，包含进度时间轴、车辆信息、费用明细、联系方式和注意事项，支持实时状态更新和便捷操作。</p>
+                <div class="prototype-tags">
+                    <span class="tag orange">核心页面</span>
+                    <span class="tag">状态管理</span>
+                    <span class="tag">时间轴</span>
+                    <span class="tag">客服集成</span>
+                </div>
+                <div class="prototype-actions">
+                    <a href="order-detail.html" class="btn btn-primary" target="_blank">
+                        📱 查看原型
+                    </a>
+                    <button class="btn btn-secondary" onclick="showInfo('order-detail')">
+                        📊 设计说明
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设计特色说明 -->
+        <div class="design-info">
+            <h3>🎨 设计特色</h3>
+            <ul>
+                <li><strong>极简主义美学</strong> - 恰到好处的留白设计，模块化卡片布局</li>
+                <li><strong>品牌色彩系统</strong> - 橙色主色调(#FF9F29)，紫色会员主题(#8860D0)</li>
+                <li><strong>微交互设计</strong> - 流畅的动画过渡，细腻的悬停和点击效果</li>
+                <li><strong>响应式布局</strong> - 完美适配移动端，保持视觉一致性</li>
+                <li><strong>无障碍设计</strong> - 符合WCAG对比度标准，确保可访问性</li>
+            </ul>
+        </div>
+
+        <!-- 使用说明 -->
+        <div class="instructions">
+            <h2>📖 使用说明</h2>
+            <ul>
+                <li>点击"查看原型"按钮在新窗口中打开HTML原型页面</li>
+                <li>所有原型均按照375px移动端屏幕宽度设计，完美适配小程序环境</li>
+                <li>原型包含完整的交互逻辑，可以直接体验页面功能和流程</li>
+                <li>遵循叨叨房车设计指南规范，确保与最终实现的一致性</li>
+                <li>建议使用Chrome浏览器的移动端模拟器进行预览，获得最佳体验效果</li>
+                <li>点击"设计说明"可以查看每个页面的详细设计思路和实现要点</li>
+            </ul>
+        </div>
+
+        <!-- 技术信息 -->
+        <div class="prototype-info">
+            <h2>⚙️ 技术实现</h2>
+            <p><strong>前端技术</strong>：HTML5 + CSS3 + JavaScript (ES6+)<br>
+            <strong>设计规范</strong>：叨叨房车设计指南 v2.0<br>
+            <strong>响应式</strong>：基于375px移动端设计，完美适配小程序环境<br>
+            <strong>交互体验</strong>：CSS动画 + JavaScript事件处理，提供流畅的用户体验</p>
+        </div>
+    </div>
+
+    <script>
+        // 显示设计说明
+        function showInfo(pageType) {
+            const info = {
+                'order-confirm': {
+                    title: '订单确认页面设计说明',
+                    content: `【设计思路】
+订单确认页面是租赁流程的决策页面，采用清晰的层次结构和渐进式信息展示。
+
+【关键特点】
+• 卡片式布局，信息分组清晰
+• 实时价格计算，用户操作反馈及时
+• 保险方案选择，信息展示完整
+• 附加服务复选框，交互便捷
+• 用户协议确认，确保合规性
+
+【交互细节】
+• 保险方案单选，点击即可切换
+• 附加服务多选，勾选框动画流畅
+• 总金额实时更新，价格透明化
+• 底部操作栏固定，按钮醒目突出
+
+【设计亮点】
+• 费用明细清晰展示，包含原价、优惠、实付
+• 优惠券信息突出，体现优惠力度
+• 用户协议复选框，位置合理便于操作
+• 提交按钮根据协议状态动态启用/禁用`
+                },
+                'payment': {
+                    title: '支付页面设计说明',
+                    content: `【设计思路】
+支付页面注重安全性和用户体验的平衡，采用简洁明了的界面设计，突出支付安全感和操作便捷性。
+
+【关键特点】
+• 倒计时提醒，增强支付紧迫感
+• 支付方式清晰展示，支持多种选择
+• 钱包余额检查，智能提示充值
+• 支付安全提示，增强用户信任
+• 成功状态反馈，提供明确指引
+
+【交互细节】
+• 支付方式单选，图标识别度高
+• 钱包余额不足时，智能提示充值
+• 倒计时最后5分钟警告提醒
+• 支付成功弹窗，提供后续操作选择
+
+【设计亮点】
+• 支付环境安全提示，增强用户信任
+• 倒计时动态警告，视觉反馈明显
+• 钱包余额检查，避免支付失败
+• 支付成功状态，提供清晰后续指引`
+                },
+                'order-detail': {
+                    title: '订单详情页面设计说明',
+                    content: `【设计思路】
+订单详情页面是用户查看订单状态的核心页面，采用时间轴形式展示订单进度，信息层次清晰，操作便捷。
+
+【关键特点】
+• 订单状态突出显示，卡片式设计
+• 进度时间轴，状态变化清晰可见
+• 信息分组展示，便于快速查找
+• 联系方式便捷，一键操作
+• 取消政策明确，避免纠纷
+
+【交互细节】
+• 进度时间轴动画效果，当前状态突出
+• 联系门店和导航功能，操作便捷
+• 取消订单二次确认，避免误操作
+• 客服咨询入口，问题及时解决
+
+【设计亮点】
+• 紫色渐变状态卡片，视觉效果突出
+• 进度时间轴设计，状态变化清晰
+• 费用明细透明，包含优惠信息
+• 底部操作栏固定，重要功能便捷访问`
+                }
+            };
+
+            const selectedInfo = info[pageType];
+            if (selectedInfo) {
+                // 创建模态框显示信息
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 10000;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                `;
+
+                const content = document.createElement('div');
+                content.style.cssText = `
+                    background: white;
+                    border-radius: 16px;
+                    padding: 32px;
+                    max-width: 600px;
+                    width: 100%;
+                    max-height: 80vh;
+                    overflow-y: auto;
+                    position: relative;
+                `;
+
+                content.innerHTML = `
+                    <h2 style="margin-bottom: 16px; color: #8860d0; font-size: 20px; font-weight: 600;">${selectedInfo.title}</h2>
+                    <pre style="white-space: pre-wrap; font-family: inherit; line-height: 1.6; color: rgba(0, 0, 0, 0.8); font-size: 14px;">${selectedInfo.content}</pre>
+                    <button onclick="this.parentElement.parentElement.remove()" style="margin-top: 20px; padding: 12px 24px; background: #ff9f29; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;">关闭</button>
+                `;
+
+                modal.appendChild(content);
+                document.body.appendChild(modal);
+
+                // 点击背景关闭
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
+            }
+        }
+
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('叨叨房车小程序HTML原型已加载完成');
+            console.log('遵循设计指南：极简主义美学 + 品牌色彩系统');
+            console.log('支持功能：订单确认、支付流程、订单详情');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿
+> daodao-rv-backend@1.0.0 test
+> jest tests/auth.test.ts --testNamePattern=搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡
+
+node.exe : ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+所在位置 行:1 字符: 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ts-jest[ts-jest...ated. Please do:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+Sun, 26 Oct 2025 04:20:16 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old midd
+leware https://github.com/koajs/koa/blob/master/docs/migration.md at src\app.ts:29:5
+  console.log
+    馃И 娴嬭瘯鐜鍒濆鍖?..
+
+      at Object.<anonymous> (tests/setup.ts:52:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡寤虹珛
+
+      at Object.<anonymous> (tests/setup.ts:57:13)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:62:11)
+
+2025-10-26 12:20:17 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13852417379
+2025-10-26 12:20:17 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 0ac4b72f-285c-4237-9e87-f193121bf080 - 13852417379
+2025-10-26 12:20:17 [[32MINFO[39M]: POST /api/auth/register - 200 - 128ms
+2025-10-26 12:20:17 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13852417379
+2025-10-26 12:20:17 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: 0ac4b72f-285c-4237-9e87-f193121bf080 - 13852417379
+2025-10-26 12:20:17 [[32MINFO[39M]: POST /api/auth/login - 200 - 85ms
+2025-10-26 12:20:17 [[33MWARN[39M]: POST /api/auth/driving-license - 400 - 8ms
+  console.log
+    馃敡 娴嬭瘯鐜娓呯悊涓?..
+
+      at Object.<anonymous> (tests/setup.ts:73:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:77:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡鍏抽棴
+
+      at Object.<anonymous> (tests/setup.ts:81:13)
+
+  console.log
+    鉁?娴嬭瘯鐜娓呯悊瀹屾垚
+
+      at Object.<anonymous> (tests/setup.ts:84:11)
+
+FAIL tests/auth.test.ts (5.822 s)
+  鐢ㄦ埛璁よ瘉 API 娴嬭瘯
+    POST /api/auth/register - 鐢ㄦ埛娉ㄥ唽
+      鈼?skipped 搴旇鎴愬姛娉ㄥ唽鏂扮敤鎴?      鈼?skipped 閲嶅鎵嬫満鍙峰簲璇ヨ繑鍥為敊璇?      鈼?skipped 缂哄皯蹇呭～瀛楁搴旇杩斿洖 400 閿欒
+      鈼?skipped 鎵嬫満鍙锋牸寮忎笉姝ｇ‘搴旇杩斿洖閿欒
+    POST /api/auth/login - 鐢ㄦ埛鐧诲綍
+      鈼?skipped 搴旇鎴愬姛鐧诲綍
+      鈼?skipped 閿欒鐨勫瘑鐮佸簲璇ヨ繑鍥為敊璇?      鈼?skipped 涓嶅瓨鍦ㄧ殑鎵嬫満鍙峰簲璇ヨ繑鍥為敊璇?      鈼?skipped 缂哄皯蹇呭～瀛楁搴旇杩斿洖 400 閿欒
+    GET /api/auth/profile - 鑾峰彇鐢ㄦ埛淇℃伅
+      鈼?skipped 搴旇鎴愬姛鑾峰彇褰撳墠鐢ㄦ埛淇℃伅
+      鈼?skipped 鏈櫥褰曞簲璇ヨ繑鍥?401 閿欒
+      鈼?skipped 鏃犳晥鐨?Token 搴旇杩斿洖 401 閿欒
+    POST /api/auth/logout - 閫€鍑虹櫥褰?      鈼?skipped 搴旇鎴愬姛閫€鍑虹櫥褰?      鈼?skipped 閫€鍑哄悗 Token 搴旇澶辨晥
+    POST /api/auth/change-password - 淇敼瀵嗙爜
+      鈼?skipped 搴旇鎴愬姛淇敼瀵嗙爜
+      鈼?skipped 搴旇鍙互浣跨敤鏂板瘑鐮佺櫥褰?      鈼?skipped 鏃у瘑鐮侀敊璇簲璇ヨ繑鍥為敊璇?    POST /api/auth/real-name - 鎻愪氦瀹炲悕璁よ瘉
+      鈼?skipped 搴旇鎴愬姛鎻愪氦瀹炲悕璁よ瘉璧勬枡
+      鈼?skipped 缂哄皯蹇呭～瀛楁搴旇杩斿洖閿欒
+    POST /api/auth/driving-license - 鎻愪氦椹剧収璁よ瘉
+      脳 搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡 (259 ms)
+
+  鈼?鐢ㄦ埛璁よ瘉 API 娴嬭瘯 鈥?POST /api/auth/driving-license - 鎻愪氦椹剧収璁よ瘉 鈥?搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 400
+
+    [0m [90m 295 |[39m         })[33m;[39m
+     [90m 296 |[39m
+    [31m[1m>[22m[39m[90m 297 |[39m       expect(response[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                               [31m[1m^[22m[39m
+     [90m 298 |[39m       expect(response[33m.[39mbody[33m.[39msuccess)[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m 299 |[39m       expect(response[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'椹剧収璧勬枡鎻愪氦鎴愬姛'[39m)[33m;[39m
+     [90m 300 |[39m     })[33m;[39m[0m
+
+      at Object.<anonymous> (tests/auth.test.ts:297:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 18 skipped, 19 total
+Snapshots:   0 total
+Time:        6.25 s
+Ran all test suites matching /tests\\auth.test.ts/i with tests matching "搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡".

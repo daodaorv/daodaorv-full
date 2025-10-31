@@ -1,0 +1,40 @@
+{
+  "name": "daodao-rv-monorepo",
+  "version": "1.0.0",
+  "description": "DaoDaoRV Platform - Monorepo",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:admin": "cd admin-console && npm run lint",
+    "lint:miniprogram": "cd miniprogram && npm run lint",
+    "lint:mobile-admin": "cd mobile-admin && npm run lint",
+    "lint:all": "npm run lint:backend && npm run lint:admin && npm run lint:miniprogram && npm run lint:mobile-admin",
+    "install:all": "cd backend && npm install && cd ../admin-console && npm install && cd ../miniprogram && npm install && cd ../mobile-admin && npm install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.0"
+  },
+  "lint-staged": {
+    "backend/**/*.{ts,js}": [
+      "cd backend && npm run lint:fix"
+    ],
+    "admin-console/**/*.{ts,js,vue}": [
+      "cd admin-console && npm run lint:fix"
+    ],
+    "miniprogram/**/*.{ts,js,vue}": [
+      "cd miniprogram && npm run lint:fix"
+    ],
+    "mobile-admin/**/*.{ts,js,vue}": [
+      "cd mobile-admin && npm run lint:fix"
+    ]
+  },
+  "keywords": [
+    "rv",
+    "rental",
+    "monorepo"
+  ],
+  "author": "DaoDaoRV Team",
+  "license": "MIT"
+}

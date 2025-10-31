@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>叨叨房车 - 订单详情页面原型</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f8f8;
+            color: rgba(0, 0, 0, 0.9);
+            line-height: 1.6;
+            font-size: 14px;
+            max-width: 375px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            height: 44px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .navbar-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .navbar-back {
+            position: absolute;
+            left: 16px;
+            font-size: 14px;
+            color: #4b91ff;
+            text-decoration: none;
+        }
+
+        .navbar-more {
+            position: absolute;
+            right: 16px;
+            font-size: 14px;
+            color: #4b91ff;
+            text-decoration: none;
+        }
+
+        /* 订单状态卡片 */
+        .status-card {
+            background: linear-gradient(135deg, #8860d0 0%, #a78bdb 100%);
+            color: white;
+            padding: 24px 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .status-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 24px;
+        }
+
+        .status-title {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .status-desc {
+            font-size: 14px;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .status-decoration {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .status-decoration2 {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        /* 主容器 */
+        .container {
+            padding-bottom: 80px;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: #ffffff;
+            margin: 12px 16px;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-more {
+            font-size: 14px;
+            color: #4b91ff;
+            text-decoration: none;
+        }
+
+        /* 订单进度 */
+        .progress-timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .progress-item {
+            position: relative;
+            padding-bottom: 24px;
+        }
+
+        .progress-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .progress-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e5e5e5;
+            z-index: 2;
+        }
+
+        .progress-item.completed::before {
+            background: #67c23a;
+        }
+
+        .progress-item.active::before {
+            background: #ff9f29;
+            box-shadow: 0 0 0 4px rgba(255, 159, 41, 0.2);
+        }
+
+        .progress-item::after {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 18px;
+            width: 2px;
+            height: calc(100% - 12px);
+            background: #e5e5e5;
+            z-index: 1;
+        }
+
+        .progress-item:last-child::after {
+            display: none;
+        }
+
+        .progress-item.completed::after {
+            background: #67c23a;
+        }
+
+        .progress-content {
+            background: #f8f8f8;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .progress-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .progress-time {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .progress-desc {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.4;
+        }
+
+        /* 车辆信息 */
+        .vehicle-info {
+            display: flex;
+            gap: 12px;
+        }
+
+        .vehicle-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .vehicle-details {
+            flex: 1;
+        }
+
+        .vehicle-name {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .vehicle-specs {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.4;
+        }
+
+        /* 信息列表 */
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.6);
+            flex-shrink: 0;
+            width: 80px;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.9);
+            text-align: right;
+            flex: 1;
+            padding-left: 12px;
+        }
+
+        /* 费用明细 */
+        .fee-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+        }
+
+        .fee-label {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .fee-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .fee-discount {
+            color: #67c23a;
+        }
+
+        .fee-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0 8px;
+            border-top: 2px solid #f0f0f0;
+            margin-top: 8px;
+        }
+
+        .fee-total-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .fee-total-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff9f29;
+        }
+
+        .fee-divider {
+            height: 1px;
+            background: #f0f0f0;
+            margin: 8px 0;
+        }
+
+        /* 押金状态样式 */
+        .deposit-status {
+            padding: 16px 0;
+        }
+
+        .deposit-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .deposit-item:last-child {
+            border-bottom: none;
+        }
+
+        .deposit-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .deposit-type {
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.9);
+            margin-bottom: 4px;
+        }
+
+        .deposit-amount {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .deposit-status-tag {
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .deposit-returned {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .deposit-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .deposit-desc {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+            padding: 8px 0 16px 0;
+            line-height: 1.4;
+        }
+
+        /* 操作按钮 */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .action-btn {
+            flex: 1;
+            height: 44px;
+            border-radius: 12px;
+            border: none;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn-primary {
+            background: #ff9f29;
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 159, 41, 0.3);
+        }
+
+        .action-btn-primary:hover {
+            background: rgba(255, 159, 41, 0.9);
+        }
+
+        .action-btn-secondary {
+            background: #ffffff;
+            color: #4b91ff;
+            border: 2px solid #4b91ff;
+        }
+
+        .action-btn-secondary:hover {
+            background: rgba(75, 145, 255, 0.1);
+        }
+
+        .action-btn-danger {
+            background: #ffffff;
+            color: #ff4d4f;
+            border: 2px solid #ff4d4f;
+        }
+
+        .action-btn-danger:hover {
+            background: rgba(255, 77, 79, 0.1);
+        }
+
+        .action-btn:disabled {
+            background: #f5f5f5;
+            color: rgba(0, 0, 0, 0.3);
+            border-color: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        /* 底部操作栏 */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            padding: 12px 16px;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 375px;
+            margin: 0 auto;
+        }
+
+        .bottom-content {
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-btn {
+            flex: 1;
+            height: 44px;
+            background: #ffffff;
+            color: #4b91ff;
+            border: 2px solid #4b91ff;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .contact-btn:hover {
+            background: rgba(75, 145, 255, 0.1);
+        }
+
+        .cancel-btn {
+            flex: 1;
+            height: 44px;
+            background: #ffffff;
+            color: #ff4d4f;
+            border: 2px solid #ff4d4f;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cancel-btn:hover {
+            background: rgba(255, 77, 79, 0.1);
+        }
+
+        .cancel-btn:disabled {
+            background: #f5f5f5;
+            color: rgba(0, 0, 0, 0.3);
+            border-color: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        /* 响应式 */
+        @media (max-width: 375px) {
+            body {
+                max-width: 100%;
+            }
+        }
+
+        /* 图标样式 */
+        .icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <a href="#" class="navbar-back">← 返回</a>
+        <div class="navbar-title">订单详情</div>
+        <a href="#" class="navbar-more">...</a>
+    </div>
+
+    <!-- 订单状态卡片 -->
+    <div class="status-card">
+        <div class="status-decoration"></div>
+        <div class="status-decoration2"></div>
+        <div class="status-content">
+            <div class="status-icon">🚗</div>
+            <div class="status-title">待取车</div>
+            <div class="status-desc">请在约定时间前往门店取车</div>
+        </div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 订单进度卡片 -->
+        <div class="card">
+            <div class="card-title">
+                订单进度
+                <a href="#" class="card-more">详情 →</a>
+            </div>
+            <div class="progress-timeline">
+                <div class="progress-item completed">
+                    <div class="progress-time">2025-11-15 14:30</div>
+                    <div class="progress-content">
+                        <div class="progress-title">订单创建</div>
+                        <div class="progress-desc">订单创建成功，等待支付</div>
+                    </div>
+                </div>
+                <div class="progress-item completed">
+                    <div class="progress-time">2025-11-15 14:32</div>
+                    <div class="progress-content">
+                        <div class="progress-title">支付完成</div>
+                        <div class="progress-desc">支付成功，订单确认</div>
+                    </div>
+                </div>
+                <div class="progress-item active">
+                    <div class="progress-time">预计 2025-11-15 10:00</div>
+                    <div class="progress-content">
+                        <div class="progress-title">待取车</div>
+                        <div class="progress-desc">请在约定时间前往门店取车，携带身份证和驾驶证</div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-time">预计 2025-11-17 18:00</div>
+                    <div class="progress-content">
+                        <div class="progress-title">待还车</div>
+                        <div class="progress-desc">按时还车，车辆检查</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 车辆信息卡片 -->
+        <div class="card">
+            <div class="card-title">车辆信息</div>
+            <div class="vehicle-info">
+                <div class="vehicle-image">房车图片</div>
+                <div class="vehicle-details">
+                    <div class="vehicle-name">豪华C型房车</div>
+                    <div class="vehicle-specs">
+                        车牌号：京A88888<br>
+                        6座 • 4床 • 自动挡 • 含司机<br>
+                        适合4-6人 • 配备厨房卫生间
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 租赁信息卡片 -->
+        <div class="card">
+            <div class="card-title">租赁信息</div>
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-label">订单编号</div>
+                    <div class="info-value">DD202511150001</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">取车时间</div>
+                    <div class="info-value">11月15日 周六 10:00</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">取车地点</div>
+                    <div class="info-value">北京市朝阳区三里屯店</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">还车时间</div>
+                    <div class="info-value">11月17日 周一 18:00</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">还车地点</div>
+                    <div class="info-value">北京市朝阳区三里屯店</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">租赁天数</div>
+                    <div class="info-value">2天</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 费用明细卡片 -->
+        <div class="card">
+            <div class="card-title">费用明细</div>
+            <div class="fee-item">
+                <div class="fee-label">房车租金 (2天)</div>
+                <div class="fee-value">¥1,200</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-label">基础险 (2天)</div>
+                <div class="fee-value">¥160</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-label">清洁套装</div>
+                <div class="fee-value">¥80</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-label">新用户优惠券</div>
+                <div class="fee-value fee-discount">-¥100</div>
+            </div>
+            <div class="fee-divider"></div>
+            <div class="fee-item fee-total">
+                <div class="fee-label">订单总额</div>
+                <div class="fee-value">¥1,340</div>
+            </div>
+        </div>
+
+        <!-- 押金信息卡片 -->
+        <div class="card">
+            <div class="card-title">押金信息</div>
+            <div class="deposit-status">
+                <div class="deposit-item">
+                    <div class="deposit-info">
+                        <div class="deposit-type">车辆押金</div>
+                        <div class="deposit-amount">¥5,000</div>
+                    </div>
+                    <div class="deposit-status-tag deposit-returned">已退还</div>
+                </div>
+                <div class="deposit-desc">
+                    2024-12-28 14:30 还车时立即退还
+                </div>
+
+                <div class="deposit-item">
+                    <div class="deposit-info">
+                        <div class="deposit-type">违章押金</div>
+                        <div class="deposit-amount">¥5,000</div>
+                    </div>
+                    <div class="deposit-status-tag deposit-pending">30天后退还</div>
+                </div>
+                <div class="deposit-desc">
+                    2025-01-27 前无违章记录将自动退还
+                </div>
+            </div>
+        </div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-label">保险费</div>
+                <div class="fee-value">¥0</div>
+            </div>
+            <div class="fee-total">
+                <div class="fee-total-label">实付金额</div>
+                <div class="fee-total-value">¥1,340</div>
+            </div>
+        </div>
+
+        <!-- 联系信息卡片 -->
+        <div class="card">
+            <div class="card-title">联系信息</div>
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-label">取车联系人</div>
+                    <div class="info-value">张师傅</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">联系电话</div>
+                    <div class="info-value">138****8888</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">门店地址</div>
+                    <div class="info-value">北京市朝阳区三里屯路19号</div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn action-btn-primary" onclick="callContact()">
+                    📞 联系门店
+                </button>
+                <button class="action-btn action-btn-secondary" onclick="navigateToStore()">
+                    📍 导航到店
+                </button>
+            </div>
+        </div>
+
+        <!-- 注意事项卡片 -->
+        <div class="card">
+            <div class="card-title">注意事项</div>
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-label">取车证件</div>
+                    <div class="info-value">身份证、驾驶证原件</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">押金</div>
+                    <div class="info-value">¥3,000（还车时退还）</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">超时费用</div>
+                    <div class="info-value">¥50/小时（不足1小时按1小时计算）</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">取消政策</div>
+                    <div class="info-value">取车前24小时免费取消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部操作栏 -->
+    <div class="bottom-bar">
+        <div class="bottom-content">
+            <button class="contact-btn" onclick="contactService()">
+                💬 客服咨询
+            </button>
+            <button class="cancel-btn" onclick="cancelOrder()">
+                取消订单
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // 联系门店
+        function callContact() {
+            if (confirm('是否拨打门店电话：138****8888')) {
+                alert('正在拨打电话...');
+                // 实际应用中调用系统拨号功能
+                // window.location.href = 'tel:13888888888';
+            }
+        }
+
+        // 导航到店
+        function navigateToStore() {
+            alert('正在打开地图导航...');
+            // 实际应用中调用地图应用
+            // window.location.href = 'maps://search?q=北京市朝阳区三里屯路19号';
+        }
+
+        // 客服咨询
+        function contactService() {
+            alert('正在连接客服...');
+            // 实际应用中跳转到客服页面或打开聊天窗口
+            // window.location.href = '/service';
+        }
+
+        // 取消订单
+        function cancelOrder() {
+            const cancelReason = prompt('请输入取消原因：');
+            if (cancelReason) {
+                if (confirm(`确认取消订单吗？\n取消原因：${cancelReason}\n\n取消后将按以下规则退款：\n- 取车前24小时：全额退款\n- 取车前24小时内：扣除10%手续费`)) {
+                    alert('订单取消申请已提交，将在1-3个工作日内处理退款');
+                    // 实际应用中调用取消订单API
+                    // window.location.href = '/orders/cancel?id=DD202511150001&reason=' + encodeURIComponent(cancelReason);
+                }
+            }
+        }
+
+        // 模拟实时状态更新
+        function updateOrderStatus() {
+            // 这里可以添加WebSocket或轮询来实时更新订单状态
+            console.log('检查订单状态更新...');
+        }
+
+        // 页面初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 启动状态检查（每30秒检查一次）
+            setInterval(updateOrderStatus, 30000);
+        });
+    </script>
+</body>
+</html>

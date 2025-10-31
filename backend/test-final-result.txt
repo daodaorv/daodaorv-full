@@ -1,0 +1,668 @@
+﻿
+> daodao-rv-backend@1.0.0 test
+> jest
+
+node.exe : ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+所在位置 行:1 字符: 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ts-jest[ts-jest...ated. Please do:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+Sun, 26 Oct 2025 04:11:29 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old midd
+leware https://github.com/koajs/koa/blob/master/docs/migration.md at src\app.ts:29:5
+  console.log
+    馃И 娴嬭瘯鐜鍒濆鍖?..
+
+      at Object.<anonymous> (tests/setup.ts:52:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡寤虹珛
+
+      at Object.<anonymous> (tests/setup.ts:57:13)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:62:11)
+
+2025-10-26 12:11:31 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13851889967
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 644fd489-0d07-476a-abed-f9f8a2d8c180 - 13851889967
+2025-10-26 12:11:32 [[32MINFO[39M]: POST /api/auth/register - 200 - 247ms
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13851889967
+2025-10-26 12:11:32 [[33MWARN[39M]: 娉ㄥ唽澶辫触: 鎵嬫満鍙峰凡瀛樺湪 - 13851889967
+2025-10-26 12:11:32 [[31MERROR[39M]: 鐢ㄦ埛娉ㄥ唽澶辫触: 13851889967 鎵嬫満鍙峰凡娉ㄥ唽
+Error: 鎵嬫満鍙峰凡娉ㄥ唽
+    at AuthService.register (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:66:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.register (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:30:20)
+2025-10-26 12:11:32 [[31MERROR[39M]: POST /api/auth/register - 500 - 16ms
+2025-10-26 12:11:32 [[33MWARN[39M]: POST /api/auth/register - 400 - 1ms
+2025-10-26 12:11:32 [[33MWARN[39M]: POST /api/auth/register - 400 - 0ms
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13851889967
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: 644fd489-0d07-476a-abed-f9f8a2d8c180 - 13851889967
+2025-10-26 12:11:32 [[32MINFO[39M]: POST /api/auth/login - 200 - 96ms
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13851889967
+2025-10-26 12:11:32 [[33MWARN[39M]: 鐧诲綍澶辫触: 瀵嗙爜閿欒 - 13851889967
+2025-10-26 12:11:32 [[31MERROR[39M]: 鐢ㄦ埛鐧诲綍澶辫触: 13851889967 瀵嗙爜閿欒
+Error: 瀵嗙爜閿欒
+    at AuthService.login (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:131:15)
+    at AuthController.login (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:56:22)
+2025-10-26 12:11:32 [[33MWARN[39M]: POST /api/auth/login - 401 - 102ms
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 19999999999
+2025-10-26 12:11:32 [[33MWARN[39M]: 鐧诲綍澶辫触: 鐢ㄦ埛涓嶅瓨鍦?- 19999999999
+2025-10-26 12:11:32 [[31MERROR[39M]: 鐢ㄦ埛鐧诲綍澶辫触: 19999999999 鐢ㄦ埛涓嶅瓨鍦?Error: 鐢ㄦ埛涓嶅瓨鍦?    at AuthService.login (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:118:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:56:22)
+2025-10-26 12:11:32 [[33MWARN[39M]: POST /api/auth/login - 404 - 3ms
+2025-10-26 12:11:32 [[33MWARN[39M]: POST /api/auth/login - 400 - 0ms
+2025-10-26 12:11:32 [[32MINFO[39M]: GET /api/auth/profile - 200 - 4ms
+2025-10-26 12:11:32 [[33MWARN[39M]: GET /api/auth/profile - 401 - 0ms
+2025-10-26 12:11:32 [[31MERROR[39M]: JWT楠岃瘉澶辫触 Invalid or expired token
+Error: Invalid or expired token
+    at verifyToken (D:\daodao\daodaorv01\backend\src\utils\jwt.ts:26:11)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:28:32)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-router\lib\router.js:423:16
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:34:12
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-router\lib\router.js:428:31)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-body\src\index.ts:120:12
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-convert\index.js:42:43
+    at Generator.next (<anonymous>)
+    at onFulfilled (D:\daodao\daodaorv01\backend\node_modules\co\index.js:65:19)
+    at D:\daodao\daodaorv01\backend\node_modules\co\index.js:54:5
+    at new Promise (<anonymous>)
+    at Object.co (D:\daodao\daodaorv01\backend\node_modules\co\index.js:50:10)
+    at Object.toPromise (D:\daodao\daodaorv01\backend\node_modules\co\index.js:118:63)
+    at next (D:\daodao\daodaorv01\backend\node_modules\co\index.js:99:29)
+    at onFulfilled (D:\daodao\daodaorv01\backend\node_modules\co\index.js:69:7)
+    at D:\daodao\daodaorv01\backend\node_modules\co\index.js:54:5
+    at new Promise (<anonymous>)
+    at Object.co (D:\daodao\daodaorv01\backend\node_modules\co\index.js:50:10)
+    at converted (D:\daodao\daodaorv01\backend\node_modules\koa-convert\index.js:38:15)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at responseMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\response.ts:39:9)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at requestLogger (D:\daodao\daodaorv01\backend\src\middlewares\request-logger.ts:10:9)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at errorHandler (D:\daodao\daodaorv01\backend\src\middlewares\error-handler.ts:9:11)
+    at dispatch (D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:42:32)
+    at D:\daodao\daodaorv01\backend\node_modules\koa-compose\index.js:34:12
+    at Application.handleRequest (D:\daodao\daodaorv01\backend\node_modules\koa\lib\application.js:186:12)
+    at Server.handleRequest (D:\daodao\daodaorv01\backend\node_modules\koa\lib\application.js:157:21)
+    at Server.emit (node:events:519:28)
+    at parserOnIncoming (node:_http_server:1184:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:122:17)
+2025-10-26 12:11:32 [[33MWARN[39M]: GET /api/auth/profile - 401 - 6ms
+2025-10-26 12:11:32 [[32MINFO[39M]: POST /api/auth/logout - 200 - 2ms
+2025-10-26 12:11:32 [[33MWARN[39M]: GET /api/auth/profile - 401 - 1ms
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13851892513
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: a50ab19b-60a5-4387-add7-c041cad0617e - 13851892513
+2025-10-26 12:11:32 [[32MINFO[39M]: POST /api/auth/register - 200 - 120ms
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13851892513
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: a50ab19b-60a5-4387-add7-c041cad0617e - 13851892513
+2025-10-26 12:11:32 [[32MINFO[39M]: POST /api/auth/login - 200 - 91ms
+2025-10-26 12:11:32 [[32MINFO[39M]: 淇敼瀵嗙爜璇锋眰: 鐢ㄦ埛ID a50ab19b-60a5-4387-add7-c041cad0617e
+2025-10-26 12:11:32 [[32MINFO[39M]: 瀵嗙爜淇敼鎴愬姛: a50ab19b-60a5-4387-add7-c041cad0617e - 13851892513
+2025-10-26 12:11:32 [[32MINFO[39M]: POST /api/auth/change-password - 200 - 208ms
+2025-10-26 12:11:32 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13851892513
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: a50ab19b-60a5-4387-add7-c041cad0617e - 13851892513
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/login - 200 - 89ms
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13851893044
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 0b0cbf8b-c30b-4dbf-8ac2-610693ba44d5 - 13851893044
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/register - 200 - 89ms
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13851893044
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: 0b0cbf8b-c30b-4dbf-8ac2-610693ba44d5 - 13851893044
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/login - 200 - 76ms
+2025-10-26 12:11:33 [[32MINFO[39M]: 淇敼瀵嗙爜璇锋眰: 鐢ㄦ埛ID 0b0cbf8b-c30b-4dbf-8ac2-610693ba44d5
+2025-10-26 12:11:33 [[33MWARN[39M]: 淇敼瀵嗙爜澶辫触: 鏃у瘑鐮侀敊璇?- 0b0cbf8b-c30b-4dbf-8ac2-610693ba44d5
+2025-10-26 12:11:33 [[31MERROR[39M]: 淇敼瀵嗙爜澶辫触: 鐢ㄦ埛ID 0b0cbf8b-c30b-4dbf-8ac2-610693ba44d5 鏃у瘑鐮侀敊璇?Error: 鏃у瘑鐮侀敊璇?    at AuthService.changePassword (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:267:15)
+    at AuthController.changePassword (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:223:22)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:42:5)
+2025-10-26 12:11:33 [[33MWARN[39M]: POST /api/auth/change-password - 401 - 77ms
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13851893297
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 2d3f9eef-feb9-42f3-bbf3-c49aa1d94c0d - 13851893297
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/register - 200 - 89ms
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13851893297
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: 2d3f9eef-feb9-42f3-bbf3-c49aa1d94c0d - 13851893297
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/login - 200 - 80ms
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/real-name - 200 - 17ms
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13851893297
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: 2d3f9eef-feb9-42f3-bbf3-c49aa1d94c0d - 13851893297
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/login - 200 - 76ms
+2025-10-26 12:11:33 [[33MWARN[39M]: POST /api/auth/real-name - 400 - 1ms
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13851893582
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: a1529383-26a7-43d0-ae7a-4e34bc4066a5 - 13851893582
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/register - 200 - 123ms
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13851893582
+2025-10-26 12:11:33 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍鎴愬姛: a1529383-26a7-43d0-ae7a-4e34bc4066a5 - 13851893582
+2025-10-26 12:11:33 [[32MINFO[39M]: POST /api/auth/login - 200 - 113ms
+2025-10-26 12:11:33 [[33MWARN[39M]: POST /api/auth/driving-license - 400 - 3ms
+  console.log
+    馃敡 娴嬭瘯鐜娓呯悊涓?..
+
+      at Object.<anonymous> (tests/setup.ts:73:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:77:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡鍏抽棴
+
+      at Object.<anonymous> (tests/setup.ts:81:13)
+
+  console.log
+    鉁?娴嬭瘯鐜娓呯悊瀹屾垚
+
+      at Object.<anonymous> (tests/setup.ts:84:11)
+
+FAIL tests/auth.test.ts (10.726 s)
+  鐢ㄦ埛璁よ瘉 API 娴嬭瘯
+    POST /api/auth/register - 鐢ㄦ埛娉ㄥ唽
+      鈭?搴旇鎴愬姛娉ㄥ唽鏂扮敤鎴?(285 ms)
+      鈭?閲嶅鎵嬫満鍙峰簲璇ヨ繑鍥為敊璇?(23 ms)
+      鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖 400 閿欒 (13 ms)
+      鈭?鎵嬫満鍙锋牸寮忎笉姝ｇ‘搴旇杩斿洖閿欒 (9 ms)
+    POST /api/auth/login - 鐢ㄦ埛鐧诲綍
+      鈭?搴旇鎴愬姛鐧诲綍 (104 ms)
+      鈭?閿欒鐨勫瘑鐮佸簲璇ヨ繑鍥為敊璇?(109 ms)
+      鈭?涓嶅瓨鍦ㄧ殑鎵嬫満鍙峰簲璇ヨ繑鍥為敊璇?(8 ms)
+      鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖 400 閿欒 (4 ms)
+    GET /api/auth/profile - 鑾峰彇鐢ㄦ埛淇℃伅
+      鈭?搴旇鎴愬姛鑾峰彇褰撳墠鐢ㄦ埛淇℃伅 (13 ms)
+      鈭?鏈櫥褰曞簲璇ヨ繑鍥?401 閿欒 (4 ms)
+      鈭?鏃犳晥鐨?Token 搴旇杩斿洖 401 閿欒 (17 ms)
+    POST /api/auth/logout - 閫€鍑虹櫥褰?      鈭?搴旇鎴愬姛閫€鍑虹櫥褰?(11 ms)
+      鈭?閫€鍑哄悗 Token 搴旇澶辨晥 (8 ms)
+    POST /api/auth/change-password - 淇敼瀵嗙爜
+      鈭?搴旇鎴愬姛淇敼瀵嗙爜 (435 ms)
+      鈭?搴旇鍙互浣跨敤鏂板瘑鐮佺櫥褰?(93 ms)
+      鈭?鏃у瘑鐮侀敊璇簲璇ヨ繑鍥為敊璇?(254 ms)
+    POST /api/auth/real-name - 鎻愪氦瀹炲悕璁よ瘉
+      鈭?搴旇鎴愬姛鎻愪氦瀹炲悕璁よ瘉璧勬枡 (198 ms)
+      鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖閿欒 (85 ms)
+    POST /api/auth/driving-license - 鎻愪氦椹剧収璁よ瘉
+      脳 搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡 (259 ms)
+
+  鈼?鐢ㄦ埛璁よ瘉 API 娴嬭瘯 鈥?POST /api/auth/driving-license - 鎻愪氦椹剧収璁よ瘉 鈥?搴旇鎴愬姛鎻愪氦椹剧収璁よ瘉璧勬枡
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 400
+
+    [0m [90m 295 |[39m         })[33m;[39m
+     [90m 296 |[39m
+    [31m[1m>[22m[39m[90m 297 |[39m       expect(response[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                               [31m[1m^[22m[39m
+     [90m 298 |[39m       expect(response[33m.[39mbody[33m.[39msuccess)[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m 299 |[39m       expect(response[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'椹剧収璧勬枡鎻愪氦鎴愬姛'[39m)[33m;[39m
+     [90m 300 |[39m     })[33m;[39m[0m
+
+      at Object.<anonymous> (tests/auth.test.ts:297:31)
+
+Sun, 26 Oct 2025 04:11:35 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old midd
+leware https://github.com/koajs/koa/blob/master/docs/migration.md at src\app.ts:29:5
+  console.log
+    馃И 娴嬭瘯鐜鍒濆鍖?..
+
+      at Object.<anonymous> (tests/setup.ts:52:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡寤虹珛
+
+      at Object.<anonymous> (tests/setup.ts:57:13)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:62:11)
+
+2025-10-26 12:11:36 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13800000000
+2025-10-26 12:11:36 [[33MWARN[39M]: 鐧诲綍澶辫触: 鐢ㄦ埛涓嶅瓨鍦?- 13800000000
+2025-10-26 12:11:36 [[31MERROR[39M]: 鐢ㄦ埛鐧诲綍澶辫触: 13800000000 鐢ㄦ埛涓嶅瓨鍦?Error: 鐢ㄦ埛涓嶅瓨鍦?    at AuthService.login (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:118:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:56:22)
+2025-10-26 12:11:36 [[33MWARN[39M]: POST /api/auth/login - 404 - 15ms
+2025-10-26 12:11:36 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13800000000
+2025-10-26 12:11:37 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 56f86ddf-3e9d-4e6e-a96b-aa65be5505ad - 13800000000
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/auth/register - 200 - 116ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13851897092
+2025-10-26 12:11:37 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 74c93491-c940-476c-b320-4edb50e6f221 - 13851897092
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/auth/register - 200 - 92ms
+2025-10-26 12:11:37 [[32MINFO[39M]: Creating vehicle model
+2025-10-26 12:11:37 [[32MINFO[39M]: Vehicle model created successfully
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/admin/vehicle-models - 200 - 19ms
+2025-10-26 12:11:37 [[32MINFO[39M]: Creating vehicle
+2025-10-26 12:11:37 [[32MINFO[39M]: Vehicle created successfully
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/admin/vehicles - 200 - 23ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟鍒涘缓鎴愬姛: ORD20251026700813 - 鐢ㄦ埛: 74c93491-c940-476c-b320-4edb50e6f221
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/orders - 200 - 39ms
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/orders - 401 - 0ms
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/orders - 400 - 1ms
+2025-10-26 12:11:37 [[31MERROR[39M]: Failed to create order: 杞﹁締涓嶅瓨鍦?Error: 杞﹁締涓嶅瓨鍦?    at OrderService.createOrder (D:\daodao\daodaorv01\backend\src\services\order.service.ts:73:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at OrderController.createOrder (D:\daodao\daodaorv01\backend\src\controllers\order.controller.ts:37:21)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:42:5)
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/orders - 404 - 12ms
+2025-10-26 12:11:37 [[31MERROR[39M]: Failed to create order: 寮€濮嬫棩鏈熶笉鑳芥棭浜庝粖澶?Error: 寮€濮嬫棩鏈熶笉鑳芥棭浜庝粖澶?    at OrderService.createOrder (D:\daodao\daodaorv01\backend\src\services\order.service.ts:87:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at OrderController.createOrder (D:\daodao\daodaorv01\backend\src\controllers\order.controller.ts:37:21)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:42:5)
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/orders - 400 - 5ms
+2025-10-26 12:11:37 [[31MERROR[39M]: Failed to create order: 缁撴潫鏃ユ湡蹇呴』鏅氫簬寮€濮嬫棩鏈?Error: 缁撴潫鏃ユ湡蹇呴』鏅氫簬寮€濮嬫棩鏈?    at OrderService.createOrder (D:\daodao\daodaorv01\backend\src\services\order.service.ts:90:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at OrderController.createOrder (D:\daodao\daodaorv01\backend\src\controllers\order.controller.ts:37:21)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:42:5)
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/orders - 400 - 5ms
+2025-10-26 12:11:37 [[32MINFO[39M]: GET /api/orders - 200 - 13ms
+2025-10-26 12:11:37 [[32MINFO[39M]: GET /api/orders?status=pending - 200 - 10ms
+2025-10-26 12:11:37 [[33MWARN[39M]: GET /api/orders - 401 - 0ms
+2025-10-26 12:11:37 [[32MINFO[39M]: GET /api/orders/f9e4e133-e489-4d05-b6b7-f15460e124f9 - 200 - 7ms
+2025-10-26 12:11:37 [[33MWARN[39M]: GET /api/orders/f9e4e133-e489-4d05-b6b7-f15460e124f9 - 401 - 1ms
+2025-10-26 12:11:37 [[33MWARN[39M]: GET /api/orders/f9e4e133-e489-4d05-b6b7-f15460e124f9 - 401 - 0ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟鍙栨秷: ORD20251026700813 - 鐢ㄦ埛: 74c93491-c940-476c-b320-4edb50e6f221
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/orders/f9e4e133-e489-4d05-b6b7-f15460e124f9/cancel - 200 - 26ms
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/orders/f9e4e133-e489-4d05-b6b7-f15460e124f9/cancel - 401 - 1ms
+2025-10-26 12:11:37 [[31MERROR[39M]: Failed to cancel order: 褰撳墠璁㈠崟鐘舵€佷笉鍙彇娑?Error: 褰撳墠璁㈠崟鐘舵€佷笉鍙彇娑?    at OrderService.cancelOrder (D:\daodao\daodaorv01\backend\src\services\order.service.ts:327:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at OrderController.cancelOrder (D:\daodao\daodaorv01\backend\src\controllers\order.controller.ts:132:21)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:42:5)
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/orders/f9e4e133-e489-4d05-b6b7-f15460e124f9/cancel - 400 - 7ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟鍒涘缓鎴愬姛: ORD20251026783977 - 鐢ㄦ埛: 74c93491-c940-476c-b320-4edb50e6f221
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/orders - 200 - 35ms
+2025-10-26 12:11:37 [[32MINFO[39M]: GET /api/admin/orders - 200 - 16ms
+2025-10-26 12:11:37 [[32MINFO[39M]: GET /api/admin/orders?status=pending - 200 - 14ms
+2025-10-26 12:11:37 [[33MWARN[39M]: GET /api/admin/orders - 403 - 3ms
+2025-10-26 12:11:37 [[32MINFO[39M]: GET /api/admin/orders/38b067e7-da56-45e9-b654-f87bce9d1213 - 200 - 14ms
+2025-10-26 12:11:37 [[32MINFO[39M]: GET /api/admin/orders/38b067e7-da56-45e9-b654-f87bce9d1213 - 200 - 13ms
+2025-10-26 12:11:37 [[33MWARN[39M]: GET /api/admin/orders/38b067e7-da56-45e9-b654-f87bce9d1213 - 403 - 4ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟鐘舵€佹洿鏂? ORD20251026783977 paid -> paid
+2025-10-26 12:11:37 [[32MINFO[39M]: PUT /api/admin/orders/38b067e7-da56-45e9-b654-f87bce9d1213/status - 200 - 21ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟鐘舵€佹洿鏂? ORD20251026783977 pickup -> pickup
+2025-10-26 12:11:37 [[32MINFO[39M]: PUT /api/admin/orders/38b067e7-da56-45e9-b654-f87bce9d1213/status - 200 - 20ms
+2025-10-26 12:11:37 [[33MWARN[39M]: PUT /api/admin/orders/38b067e7-da56-45e9-b654-f87bce9d1213/status - 400 - 2ms
+2025-10-26 12:11:37 [[33MWARN[39M]: PUT /api/admin/orders/38b067e7-da56-45e9-b654-f87bce9d1213/status - 403 - 4ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟鍒涘缓鎴愬姛: ORD20251026361047 - 鐢ㄦ埛: 74c93491-c940-476c-b320-4edb50e6f221
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/orders - 200 - 39ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟鐘舵€佹洿鏂? ORD20251026361047 paid -> paid
+2025-10-26 12:11:37 [[32MINFO[39M]: PUT /api/admin/orders/0f10d5fe-a5ef-4869-b301-570e5031d2d8/status - 200 - 25ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟鍙栨秷: ORD20251026361047 - 鐢ㄦ埛: 74c93491-c940-476c-b320-4edb50e6f221
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/orders/0f10d5fe-a5ef-4869-b301-570e5031d2d8/cancel - 200 - 16ms
+2025-10-26 12:11:37 [[32MINFO[39M]: 璁㈠崟閫€娆? ORD20251026361047 - 閲戦: 500
+2025-10-26 12:11:37 [[32MINFO[39M]: POST /api/admin/orders/0f10d5fe-a5ef-4869-b301-570e5031d2d8/refund - 200 - 31ms
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/admin/orders/0f10d5fe-a5ef-4869-b301-570e5031d2d8/refund - 400 - 2ms
+2025-10-26 12:11:37 [[33MWARN[39M]: POST /api/admin/orders/0f10d5fe-a5ef-4869-b301-570e5031d2d8/refund - 403 - 3ms
+  console.log
+    馃敡 娴嬭瘯鐜娓呯悊涓?..
+
+      at Object.<anonymous> (tests/setup.ts:73:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:77:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡鍏抽棴
+
+      at Object.<anonymous> (tests/setup.ts:81:13)
+
+  console.log
+    鉁?娴嬭瘯鐜娓呯悊瀹屾垚
+
+      at Object.<anonymous> (tests/setup.ts:84:11)
+
+PASS tests/order.test.ts
+  璁㈠崟绠＄悊 API 娴嬭瘯
+    鐢ㄦ埛绔鍗?API
+      鈭?宸插彇娑堢殑璁㈠崟涓嶈兘鍐嶆鍙栨秷 (11 ms)
+      POST /api/orders - 鍒涘缓璁㈠崟
+        鈭?搴旇鎴愬姛鍒涘缓璁㈠崟 (44 ms)
+        鈭?鏈櫥褰曞簲璇ヨ繑鍥?401 閿欒 (7 ms)
+        鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖 400 閿欒 (3 ms)
+        鈭?杞﹁締涓嶅瓨鍦ㄥ簲璇ヨ繑鍥為敊璇?(15 ms)
+        鈭?寮€濮嬫棩鏈熸棭浜庝粖澶╁簲璇ヨ繑鍥為敊璇?(11 ms)
+        鈭?缁撴潫鏃ユ湡鏃╀簬寮€濮嬫棩鏈熷簲璇ヨ繑鍥為敊璇?(9 ms)
+      GET /api/orders - 鑾峰彇鎴戠殑璁㈠崟鍒楄〃
+        鈭?搴旇鎴愬姛鑾峰彇鎴戠殑璁㈠崟鍒楄〃 (17 ms)
+        鈭?鍙互鎸夌姸鎬佺瓫閫夎鍗?(14 ms)
+        鈭?鏈櫥褰曞簲璇ヨ繑鍥?401 閿欒 (4 ms)
+      GET /api/orders/:id - 鑾峰彇璁㈠崟璇︽儏
+        鈭?搴旇鎴愬姛鑾峰彇璁㈠崟璇︽儏 (19 ms)
+        鈭?鏈櫥褰曞簲璇ヨ繑鍥?401 閿欒 (8 ms)
+        鈭?璁块棶浠栦汉璁㈠崟搴旇杩斿洖 403 閿欒 (5 ms)
+      POST /api/orders/:id/cancel - 鍙栨秷璁㈠崟
+        鈭?搴旇鎴愬姛鍙栨秷璁㈠崟 (30 ms)
+        鈭?鏈櫥褰曞簲璇ヨ繑鍥?401 閿欒 (4 ms)
+    绠＄悊绔鍗?API
+      GET /api/admin/orders - 鑾峰彇鎵€鏈夎鍗曞垪琛?        鈭?搴旇鎴愬姛鑾峰彇鎵€鏈夎鍗曞垪琛?(21 ms)
+        鈭?鍙互鎸夌姸鎬佺瓫閫夎鍗?(24 ms)
+        鈭?鏅€氱敤鎴蜂笉鑳借闂鐞嗙璁㈠崟鍒楄〃 (12 ms)
+      GET /api/admin/orders/:id - 鑾峰彇璁㈠崟璇︽儏锛堢鐞嗙锛?        鈭?搴旇鎴愬姛鑾峰彇璁㈠崟璇︽儏 (22 ms)
+        鈭?鏅€氱敤鎴蜂笉鑳借闂鐞嗙璁㈠崟璇︽儏 (18 ms)
+        鈭?鏅€氱敤鎴疯闂簲璇ヨ繑鍥?03 (10 ms)
+      PUT /api/admin/orders/:id/status - 鏇存柊璁㈠崟鐘舵€?        鈭?搴旇鎴愬姛鏇存柊璁㈠崟鐘舵€佷负宸叉敮浠?(28 ms)
+        鈭?搴旇鎴愬姛鏇存柊璁㈠崟鐘舵€佷负寰呭彇杞?(28 ms)
+        鈭?缂哄皯鐘舵€佸弬鏁板簲璇ヨ繑鍥?400 閿欒 (8 ms)
+        鈭?鏅€氱敤鎴蜂笉鑳芥洿鏂拌鍗曠姸鎬?(10 ms)
+      POST /api/admin/orders/:id/refund - 澶勭悊閫€娆?        鈭?搴旇鎴愬姛澶勭悊閫€娆?(36 ms)
+        鈭?缂哄皯閫€娆鹃噾棰濆簲璇ヨ繑鍥?400 閿欒 (10 ms)
+        鈭?鏅€氱敤鎴蜂笉鑳藉鐞嗛€€娆?(8 ms)
+
+Sun, 26 Oct 2025 04:11:39 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old midd
+leware https://github.com/koajs/koa/blob/master/docs/migration.md at src\app.ts:29:5
+  console.log
+    馃И 娴嬭瘯鐜鍒濆鍖?..
+
+      at Object.<anonymous> (tests/setup.ts:52:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡寤虹珛
+
+      at Object.<anonymous> (tests/setup.ts:57:13)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:62:11)
+
+2025-10-26 12:11:40 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13800000000
+2025-10-26 12:11:40 [[33MWARN[39M]: 鐧诲綍澶辫触: 鐢ㄦ埛涓嶅瓨鍦?- 13800000000
+2025-10-26 12:11:40 [[31MERROR[39M]: 鐢ㄦ埛鐧诲綍澶辫触: 13800000000 鐢ㄦ埛涓嶅瓨鍦?Error: 鐢ㄦ埛涓嶅瓨鍦?    at AuthService.login (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:118:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:56:22)
+2025-10-26 12:11:40 [[33MWARN[39M]: POST /api/auth/login - 404 - 19ms
+2025-10-26 12:11:40 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13800000000
+2025-10-26 12:11:41 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: 609275c6-336b-4021-bc01-60ec2f4c6b70 - 13800000000
+2025-10-26 12:11:41 [[32MINFO[39M]: POST /api/auth/register - 200 - 115ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Creating vehicle model
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle model created successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: POST /api/admin/vehicle-models - 200 - 18ms
+2025-10-26 12:11:41 [[33MWARN[39M]: POST /api/admin/vehicle-models - 400 - 5ms
+2025-10-26 12:11:41 [[33MWARN[39M]: POST /api/admin/vehicle-models - 400 - 1ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting vehicle model list
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicle-models - 200 - 6ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting vehicle model list
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicle-models?page=1&pageSize=10 - 200 - 3ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting vehicle model list
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicle-models?category=type_c - 200 - 2ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting vehicle model list
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicle-models?keyword=%E5%A4%A7%E9%80%9A - 200 - 3ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Updating vehicle model
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle model updated successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: PUT /api/admin/vehicle-models/7a41a56d-d990-4738-82d4-0d41311a5427 - 200 - 16ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting active vehicle models
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicle-models/active - 200 - 4ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Toggling vehicle model active status
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle model active status toggled
+2025-10-26 12:11:41 [[32MINFO[39M]: PUT /api/admin/vehicle-models/7a41a56d-d990-4738-82d4-0d41311a5427/toggle - 200 - 15ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Toggling vehicle model active status
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle model active status toggled
+2025-10-26 12:11:41 [[32MINFO[39M]: PUT /api/admin/vehicle-models/7a41a56d-d990-4738-82d4-0d41311a5427/toggle - 200 - 17ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Creating vehicle
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle created successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: POST /api/admin/vehicles - 200 - 19ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Creating vehicle
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle created successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: POST /api/admin/vehicles - 200 - 16ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Creating vehicle
+2025-10-26 12:11:41 [[31MERROR[39M]: Failed to create vehicle
+2025-10-26 12:11:41 [[31MERROR[39M]: Failed to create vehicle: 杞︾墝鍙峰凡瀛樺湪
+Error: 杞︾墝鍙峰凡瀛樺湪
+    at VehicleService.createVehicle (D:\daodao\daodaorv01\backend\src\services\vehicle.service.ts:86:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at VehicleController.createVehicle (D:\daodao\daodaorv01\backend\src\controllers\vehicle.controller.ts:59:23)
+    at adminAuthMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\admin-auth.ts:61:5)
+2025-10-26 12:11:41 [[31MERROR[39M]: POST /api/admin/vehicles - 500 - 8ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Deleting vehicle
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle deleted successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: DELETE /api/admin/vehicles/561f84bc-95fd-4930-b906-32b849c01ce3 - 200 - 16ms
+2025-10-26 12:11:41 [[33MWARN[39M]: POST /api/admin/vehicles - 400 - 2ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting vehicle by id
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056 - 200 - 9ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting vehicle list
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicles - 200 - 5ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting vehicle list
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicles?status=available - 200 - 6ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting vehicle list
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicles?vehicleModelId=7a41a56d-d990-4738-82d4-0d41311a5427 - 200 - 3ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Updating vehicle
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle updated successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: PUT /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056 - 200 - 15ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Updating vehicle status
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle status updated successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: PUT /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056/status - 200 - 15ms
+2025-10-26 12:11:41 [[33MWARN[39M]: PUT /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056/status - 400 - 3ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Adding maintenance record
+2025-10-26 12:11:41 [[32MINFO[39M]: Maintenance record added successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: POST /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056/maintenance - 200 - 16ms
+2025-10-26 12:11:41 [[33MWARN[39M]: POST /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056/maintenance - 400 - 4ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting maintenance records
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056/maintenance - 200 - 3ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Adding transfer record
+2025-10-26 12:11:41 [[32MINFO[39M]: Transfer record added successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: POST /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056/transfers - 200 - 26ms
+2025-10-26 12:11:41 [[33MWARN[39M]: POST /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056/transfers - 400 - 2ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Getting transfer records
+2025-10-26 12:11:41 [[32MINFO[39M]: GET /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056/transfers - 200 - 3ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Deleting vehicle
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle deleted successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: DELETE /api/admin/vehicles/a1021cda-ef96-4488-a5e7-0d4c8b60d056 - 200 - 41ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Creating vehicle model
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle model created successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: POST /api/admin/vehicle-models - 200 - 14ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Creating vehicle
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle created successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: POST /api/admin/vehicles - 200 - 18ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Deleting vehicle model
+2025-10-26 12:11:41 [[31MERROR[39M]: Failed to delete vehicle model
+2025-10-26 12:11:41 [[31MERROR[39M]: Failed to delete vehicle model: 璇ヨ溅鍨嬫ā鏉夸笅杩樻湁鍏宠仈杞﹁締锛屾棤娉曞垹闄?Error: 璇ヨ溅鍨嬫ā鏉夸笅杩樻湁鍏宠仈杞﹁締锛屾棤娉曞垹闄?    at VehicleModelService.deleteModel (D:\daodao\daodaorv01\backend\src\services\vehicle-model.service.ts:122:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at VehicleModelController.deleteModel (D:\daodao\daodaorv01\backend\src\controllers\vehicle-model.controller.ts:134:7)
+    at adminAuthMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\admin-auth.ts:61:5)
+2025-10-26 12:11:41 [[31MERROR[39M]: DELETE /api/admin/vehicle-models/6f03b417-cbfe-4f4e-9304-eb12dd660336 - 500 - 8ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Deleting vehicle
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle deleted successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: DELETE /api/admin/vehicles/adbb2896-0515-4e5b-bc93-a19b3b63fa76 - 200 - 16ms
+2025-10-26 12:11:41 [[32MINFO[39M]: Deleting vehicle model
+2025-10-26 12:11:41 [[32MINFO[39M]: Vehicle model deleted successfully
+2025-10-26 12:11:41 [[32MINFO[39M]: DELETE /api/admin/vehicle-models/7a41a56d-d990-4738-82d4-0d41311a5427 - 200 - 14ms
+  console.log
+    馃敡 娴嬭瘯鐜娓呯悊涓?..
+
+      at Object.<anonymous> (tests/setup.ts:73:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:77:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡鍏抽棴
+
+      at Object.<anonymous> (tests/setup.ts:81:13)
+
+  console.log
+    鉁?娴嬭瘯鐜娓呯悊瀹屾垚
+
+      at Object.<anonymous> (tests/setup.ts:84:11)
+
+PASS tests/vehicle.test.ts
+  杞﹁締绠＄悊 API 娴嬭瘯
+    杞﹀瀷妯℃澘绠＄悊
+      POST /api/admin/vehicle-models - 鍒涘缓杞﹀瀷妯℃澘
+        鈭?搴旇鎴愬姛鍒涘缓杞﹀瀷妯℃澘 (23 ms)
+        鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖400閿欒 (9 ms)
+        鈭?杞﹀瀷鍒嗙被涓嶅悎娉曞簲璇ヨ繑鍥為敊璇?(4 ms)
+      GET /api/admin/vehicle-models - 鑾峰彇杞﹀瀷妯℃澘鍒楄〃
+        鈭?搴旇鎴愬姛鑾峰彇杞﹀瀷妯℃澘鍒楄〃 (10 ms)
+        鈭?鏀寔鍒嗛〉鏌ヨ (7 ms)
+        鈭?鏀寔鎸夊垎绫荤瓫閫?(7 ms)
+        鈭?鏀寔鍏抽敭璇嶆悳绱?(6 ms)
+      PUT /api/admin/vehicle-models/:id - 鏇存柊杞﹀瀷妯℃澘
+        鈭?搴旇鎴愬姛鏇存柊杞﹀瀷妯℃澘 (19 ms)
+      GET /api/admin/vehicle-models/active - 鑾峰彇鍚敤鐨勮溅鍨嬫ā鏉?        鈭?搴旇杩斿洖鎵€鏈夊惎鐢ㄧ殑杞﹀瀷妯℃澘 (14 ms)
+      PUT /api/admin/vehicle-models/:id/toggle - 鍒囨崲鍚敤鐘舵€?        鈭?搴旇鎴愬姛鍒囨崲杞﹀瀷妯℃澘鐘舵€?(18 ms)
+        鈭?鍐嶆鍒囨崲搴旇鎭㈠鐘舵€?(20 ms)
+    杞﹁締绠＄悊
+      POST /api/admin/vehicles - 娣诲姞杞﹁締
+        鈭?搴旇鎴愬姛娣诲姞杞﹁締 (24 ms)
+        鈭?閲嶅杞︾墝鍙峰簲璇ヨ繑鍥為敊璇?(51 ms)
+        鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖400閿欒 (4 ms)
+      GET /api/admin/vehicles/:id - 鑾峰彇杞﹁締璇︽儏
+        鈭?搴旇鎴愬姛鑾峰彇杞﹁締璇︽儏 (13 ms)
+      GET /api/admin/vehicles - 鑾峰彇杞﹁締鍒楄〃
+        鈭?搴旇鎴愬姛鑾峰彇杞﹁締鍒楄〃 (8 ms)
+        鈭?鏀寔鎸夌姸鎬佺瓫閫?(10 ms)
+        鈭?鏀寔鎸夎溅鍨嬫ā鏉跨瓫閫?(6 ms)
+      PUT /api/admin/vehicles/:id - 鏇存柊杞﹁締淇℃伅
+        鈭?搴旇鎴愬姛鏇存柊杞﹁締淇℃伅 (21 ms)
+      PUT /api/admin/vehicles/:id/status - 鏇存柊杞﹁締鐘舵€?        鈭?搴旇鎴愬姛鏇存柊杞﹁締鐘舵€?(19 ms)
+        鈭?涓嶅悎娉曠殑鐘舵€佸€煎簲璇ヨ繑鍥為敊璇?(6 ms)
+    杞﹁締缁存姢绠＄悊
+      POST /api/admin/vehicles/:id/maintenance - 娣诲姞缁存姢璁板綍
+        鈭?搴旇鎴愬姛娣诲姞缁存姢璁板綍 (19 ms)
+        鈭?缂哄皯蹇呭～瀛楁搴旇杩斿洖400閿欒 (8 ms)
+      GET /api/admin/vehicles/:id/maintenance - 鑾峰彇缁存姢璁板綍
+        鈭?搴旇鎴愬姛鑾峰彇杞﹁締鐨勭淮鎶よ褰?(6 ms)
+    杞﹁締璋冨害绠＄悊
+      POST /api/admin/vehicles/:id/transfers - 娣诲姞璋冨害璁板綍
+        鈭?搴旇鎴愬姛娣诲姞璋冨害璁板綍 (29 ms)
+        鈭?璋冨嚭闂ㄥ簵鍜岃皟鍏ラ棬搴楃浉鍚屽簲璇ヨ繑鍥為敊璇?(5 ms)
+      GET /api/admin/vehicles/:id/transfers - 鑾峰彇璋冨害璁板綍
+        鈭?搴旇鎴愬姛鑾峰彇杞﹁締鐨勮皟搴﹁褰?(9 ms)
+    DELETE /api/admin/vehicles/:id - 鍒犻櫎杞﹁締
+      鈭?搴旇鎴愬姛鍒犻櫎杞﹁締 (44 ms)
+      鈭?鏈夊叧鑱旇溅杈嗙殑杞﹀瀷妯℃澘涓嶈兘鍒犻櫎 (91 ms)
+
+Sun, 26 Oct 2025 04:11:43 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old midd
+leware https://github.com/koajs/koa/blob/master/docs/migration.md at src\app.ts:29:5
+  console.log
+    馃И 娴嬭瘯鐜鍒濆鍖?..
+
+      at Object.<anonymous> (tests/setup.ts:52:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撹繛鎺ュ凡寤虹珛
+
+      at Object.<anonymous> (tests/setup.ts:57:13)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:62:11)
+
+2025-10-26 12:11:44 [[32MINFO[39M]: 鐢ㄦ埛鐧诲綍璇锋眰: 13800000000
+2025-10-26 12:11:44 [[33MWARN[39M]: 鐧诲綍澶辫触: 鐢ㄦ埛涓嶅瓨鍦?- 13800000000
+2025-10-26 12:11:44 [[31MERROR[39M]: 鐢ㄦ埛鐧诲綍澶辫触: 13800000000 鐢ㄦ埛涓嶅瓨鍦?Error: 鐢ㄦ埛涓嶅瓨鍦?    at AuthService.login (D:\daodao\daodaorv01\backend\src\services\auth.service.ts:118:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\daodao\daodaorv01\backend\src\controllers\auth.controller.ts:56:22)
+2025-10-26 12:11:44 [[33MWARN[39M]: POST /api/auth/login - 404 - 16ms
+2025-10-26 12:11:44 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13800000000
+2025-10-26 12:11:44 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: c8721a69-d563-4ec9-9436-01c6d8250fd8 - 13800000000
+2025-10-26 12:11:44 [[32MINFO[39M]: POST /api/auth/register - 200 - 129ms
+2025-10-26 12:11:44 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽璇锋眰: 13851904744
+2025-10-26 12:11:44 [[32MINFO[39M]: 鐢ㄦ埛娉ㄥ唽鎴愬姛: e774cfb8-4b47-4cfa-82e8-5e704dbff5c6 - 13851904744
+2025-10-26 12:11:44 [[32MINFO[39M]: POST /api/auth/register - 200 - 118ms
+2025-10-26 12:11:44 [[32MINFO[39M]: 鍒涘缓閽卞寘: 鐢ㄦ埛ID=e774cfb8-4b47-4cfa-82e8-5e704dbff5c6
+2025-10-26 12:11:44 [[32MINFO[39M]: 閽卞寘鍒涘缓鎴愬姛: walletId=98cda0e6-5c2d-45b3-9eed-743d347370c6
+2025-10-26 12:11:44 [[32MINFO[39M]: GET /api/wallet - 200 - 27ms
+2025-10-26 12:11:44 [[32MINFO[39M]: 鎵嬪姩璋冩暣浣欓: 鐢ㄦ埛ID=e774cfb8-4b47-4cfa-82e8-5e704dbff5c6, 閲戦=1000
+2025-10-26 12:11:44 [[32MINFO[39M]: 浣欓璋冩暣鎴愬姛: 0 -> 1000
+2025-10-26 12:11:44 [[32MINFO[39M]: POST /api/admin/wallet/adjust - 200 - 44ms
+2025-10-26 12:11:44 [[32MINFO[39M]: GET /api/wallet - 200 - 3ms
+2025-10-26 12:11:44 [[32MINFO[39M]: GET /api/wallet/transactions?page=1&pageSize=10 - 200 - 3ms
+2025-10-26 12:11:44 [[32MINFO[39M]: 鐢宠鎻愮幇: 鐢ㄦ埛ID=e774cfb8-4b47-4cfa-82e8-5e704dbff5c6, 閲戦=100
+2025-10-26 12:11:45 [[32MINFO[39M]: 鎻愮幇鐢宠鎴愬姛: 鎻愮幇鍗曞彿=WD20251026891533
+2025-10-26 12:11:45 [[32MINFO[39M]: POST /api/wallet/withdraw - 200 - 82ms
+2025-10-26 12:11:45 [[32MINFO[39M]: 鐢宠鎻愮幇: 鐢ㄦ埛ID=e774cfb8-4b47-4cfa-82e8-5e704dbff5c6, 閲戦=10000
+2025-10-26 12:11:45 [[31MERROR[39M]: 鐢宠鎻愮幇澶辫触 鍙敤浣欓涓嶈冻
+Error: 鍙敤浣欓涓嶈冻
+    at WalletService.requestWithdrawal (D:\daodao\daodaorv01\backend\src\services\wallet.service.ts:264:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at WalletController.requestWithdrawal (D:\daodao\daodaorv01\backend\src\controllers\wallet.controller.ts:134:26)
+    at authMiddleware (D:\daodao\daodaorv01\backend\src\middlewares\auth.ts:42:5)
+2025-10-26 12:11:45 [[33MWARN[39M]: POST /api/wallet/withdraw - 400 - 10ms
+2025-10-26 12:11:45 [[33MWARN[39M]: POST /api/wallet/withdraw - 400 - 1ms
+2025-10-26 12:11:45 [[32MINFO[39M]: GET /api/wallet - 200 - 3ms
+2025-10-26 12:11:45 [[32MINFO[39M]: GET /api/wallet/withdrawals?page=1&pageSize=10 - 200 - 12ms
+2025-10-26 12:11:45 [[32MINFO[39M]: GET /api/admin/withdrawals?status=pending&page=1&pageSize=10 - 200 - 13ms
+2025-10-26 12:11:45 [[32MINFO[39M]: GET /api/admin/withdrawals/0c22bf4a-8d32-4aec-90fc-0c5e02bb13bd - 200 - 10ms
+2025-10-26 12:11:45 [[32MINFO[39M]: 澶勭悊鎻愮幇: ID=0c22bf4a-8d32-4aec-90fc-0c5e02bb13bd, 瀹℃牳缁撴灉=閫氳繃
+2025-10-26 12:11:45 [[32MINFO[39M]: 鎻愮幇瀹℃牳閫氳繃: WD20251026891533
+2025-10-26 12:11:45 [[32MINFO[39M]: POST /api/admin/withdrawals/0c22bf4a-8d32-4aec-90fc-0c5e02bb13bd/review - 200 - 58ms
+2025-10-26 12:11:45 [[32MINFO[39M]: GET /api/wallet - 200 - 2ms
+2025-10-26 12:11:45 [[32MINFO[39M]: 鐢宠鎻愮幇: 鐢ㄦ埛ID=e774cfb8-4b47-4cfa-82e8-5e704dbff5c6, 閲戦=50
+2025-10-26 12:11:45 [[32MINFO[39M]: 鎻愮幇鐢宠鎴愬姛: 鎻愮幇鍗曞彿=WD20251026434044
+2025-10-26 12:11:45 [[32MINFO[39M]: POST /api/wallet/withdraw - 200 - 48ms
+2025-10-26 12:11:45 [[32MINFO[39M]: 澶勭悊鎻愮幇: ID=39359be8-5ed2-4044-85b7-24977de52b3d, 瀹℃牳缁撴灉=鎷掔粷
+2025-10-26 12:11:45 [[32MINFO[39M]: 鎻愮幇瀹℃牳鎷掔粷: WD20251026434044
+2025-10-26 12:11:45 [[32MINFO[39M]: POST /api/admin/withdrawals/39359be8-5ed2-4044-85b7-24977de52b3d/review - 200 - 49ms
+2025-10-26 12:11:45 [[32MINFO[39M]: GET /api/wallet - 200 - 6ms
+2025-10-26 12:11:45 [[32MINFO[39M]: 鎵嬪姩璋冩暣浣欓: 鐢ㄦ埛ID=e774cfb8-4b47-4cfa-82e8-5e704dbff5c6, 閲戦=-200
+2025-10-26 12:11:45 [[32MINFO[39M]: 浣欓璋冩暣鎴愬姛: 900 -> 700
+2025-10-26 12:11:45 [[32MINFO[39M]: POST /api/admin/wallet/adjust - 200 - 28ms
+2025-10-26 12:11:45 [[32MINFO[39M]: GET /api/wallet - 200 - 2ms
+2025-10-26 12:11:45 [[33MWARN[39M]: GET /api/wallet - 401 - 0ms
+2025-10-26 12:11:45 [[33MWARN[39M]: GET /api/admin/withdrawals - 403 - 2ms
+2025-10-26 12:11:45 [[33MWARN[39M]: POST /api/admin/withdrawals/some-id/review - 403 - 2ms
+2025-10-26 12:11:45 [[33MWARN[39M]: POST /api/admin/wallet/adjust - 403 - 5ms
+  console.log
+    馃敡 娴嬭瘯鐜娓呯悊涓?..
+
+      at Object.<anonymous> (tests/setup.ts:73:11)
+
+  console.log
+    鉁?娴嬭瘯鏁版嵁搴撳凡娓呯悊
+
+      at Object.<anonymous> (tests/setup.ts:77:11)
+
+  console.log
+    鉁?娴嬭瘯鐜娓呯悊瀹屾垚
+
+      at Object.<anonymous> (tests/setup.ts:84:11)
+
+PASS tests/wallet.test.ts
+  閽卞寘 API 娴嬭瘯
+    鐢ㄦ埛閽卞寘鍔熻兘
+      鈭?鑾峰彇閽卞寘淇℃伅 - 鑷姩鍒涘缓閽卞寘 (153 ms)
+      鈭?绠＄悊鍛樻墜鍔ㄥ厖鍊?(48 ms)
+      鈭?鏌ョ湅閽卞寘浣欓 - 鍏呭€煎悗 (7 ms)
+      鈭?鑾峰彇浜ゆ槗璁板綍 (12 ms)
+    鎻愮幇鍔熻兘
+      鈭?鐢宠鎻愮幇 - 寰俊 (87 ms)
+      鈭?鐢宠鎻愮幇 - 浣欓涓嶈冻 (19 ms)
+      鈭?鐢宠鎻愮幇 - 鍙傛暟楠岃瘉澶辫触 (9 ms)
+      鈭?鏌ョ湅閽卞寘浣欓 - 鎻愮幇鍚庯紙鍐荤粨锛?(11 ms)
+      鈭?鑾峰彇鎻愮幇璁板綍锛堢敤鎴风锛?(19 ms)
+      鈭?鑾峰彇鎻愮幇璁板綍鍒楄〃锛堢鐞嗙锛?(21 ms)
+      鈭?鑾峰彇鎻愮幇璇︽儏锛堢鐞嗙锛?(15 ms)
+      鈭?瀹℃牳鎻愮幇 - 閫氳繃 (62 ms)
+      鈭?鏌ョ湅閽卞寘浣欓 - 鎻愮幇瀹℃牳閫氳繃鍚?(5 ms)
+    鎻愮幇瀹℃牳 - 鎷掔粷
+      鈭?鍐嶆鐢宠鎻愮幇 (51 ms)
+      鈭?瀹℃牳鎻愮幇 - 鎷掔粷 (52 ms)
+      鈭?鏌ョ湅閽卞寘浣欓 - 鎻愮幇鎷掔粷鍚?(10 ms)
+    绠＄悊鍛樹綑棰濊皟鏁?      鈭?绠＄悊鍛樻墸鍑忎綑棰?(32 ms)
+      鈭?鏌ョ湅閽卞寘浣欓 - 浣欓璋冩暣鍚?(6 ms)
+    鏉冮檺楠岃瘉
+      鈭?鏈櫥褰曚笉鑳借闂挶鍖?(3 ms)
+      鈭?鏅€氱敤鎴蜂笉鑳借闂鐞嗙鎻愮幇鍒楄〃 (8 ms)
+      鈭?鏅€氱敤鎴蜂笉鑳藉鏍告彁鐜?(5 ms)
+      鈭?鏅€氱敤鎴蜂笉鑳借皟鏁翠綑棰?(9 ms)
+
+Test Suites: 1 failed, 3 passed, 4 total
+Tests:       1 failed, 97 passed, 98 total
+Snapshots:   0 total
+Time:        21.473 s
+Ran all test suites.
